@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<launch>
+    <arg name="simulation" default="false" />
+    <!-- Launch laser leg detection /-->
+    <arg name="laser_scan" default="hsrb/base_scan" />
+
+    <node pkg="edge_leg_detector" type="detector" name="edge_leg_detector" output="screen">
+        <param name="laser_scan" value="$(arg laser_scan)" type="string"/>
+    </node>
+
+    <!-- Speech recognition -->
+<!--     <node name="sound_localization" pkg="villa_sound_localization" type="sound_localization" output="screen" />
+    <node name="google_speech_node" pkg="villa_audio" type="google_speech.py" output="screen" />
+    <node name="listener_node" pkg="villa_task" type="listener_planb" output="screen" />
+ -->
+    <param name="kalman_tracker/fixed_frame" type="string" value="map"/>
+    <param name="kalman_tracker/freq" value="10.0"/>
+    <param name="kalman_tracker/start_distance_min" value="0.25"/>
+    <param name="kalman_tracker/reliability_threshold" value="0.65"/>
+    <param name="kalman_tracker/follow_one_person" type="bool" value="true"/>
+
+    <!-- Kalman with velocity model covariances -->
+    <param name="kalman_tracker/sys_sigma_pos_x" value="1.8"/>
+    <param name="kalman_tracker/sys_sigma_pos_y" value="1.8"/>
+    <param name="kalman_tracker/sys_sigma_pos_z" value="1.3"/>
+    <param name="kalman_tracker/sys_sigma_vel_x" value="2.5"/>
+    <param name="kalman_tracker/sys_sigma_vel_y" value="2.5"/>
+    <param name="kalman_tracker/sys_sigma_vel_z" value="2.5"/>
+
+    <!-- <node pkg="navi_mdp" type="mdpplanner" name="mdp_node" output="screen"/> -->
+
+    <node pkg="human_filter" type="kalman_tracker" name="people_tracking_filter_node" output="screen"/>
+
+    <!-- <node pkg="villa_3d_object_extract" type="human_tmc_cluster_based_yolo_3D_extractor" name="villa_3d_humanbox_extract" output="screen"/> -->
+
+    <node pkg="human_filter" type="follow_service_test" name="following_service_node" output="screen"/>
+
+    <!-- <node pkg="villa_navi_service" type="nav_service_test" name="villa_navi_service_node" output="screen"/> -->
+
+    <node pkg="villa_task" type="handover_planb" name="hadover_node" output="screen" />
+
+</launch>

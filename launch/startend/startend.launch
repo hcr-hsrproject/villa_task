@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+
+<launch>
+    <arg name="multimap_file" default="$(find villa_simulation)/maps/bwi_nav/arena/multimap/one_level.yaml" />
+    <arg name="wrist" default="false" />
+    <arg name="start" default="true" />
+    <arg name="end" default="true" />
+    <arg name="start_name" default="start" />
+    <arg name="end_name" default="end" />
+    <arg name="task_server" default="task" />
+
+    <include file="$(find villa_launch)/launch/bwi_nav/bwi_navigation.xml" >
+        <arg name="multimap_file" value="$(arg multimap_file)" />
+    </include>
+
+    <node name="start_end_node" pkg="villa_task" type="start_end" output="screen" >
+        <param name="wrist" value="$(arg wrist)" />
+        <param name="start" value="$(arg start)" />
+        <param name="end" value="$(arg end)" />
+        <param name="start_name" value="$(arg start_name)" />
+        <param name="end_name" value="$(arg end_name)" />
+        <remap from="task" to="$(arg task_server)" />
+    </node>
+</launch>
+

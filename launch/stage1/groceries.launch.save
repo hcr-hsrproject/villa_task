@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<launch>
+  <arg name="run_task_executor" default="true"/>
+  <arg name="simulation" default="false" />
+  <arg name="autostart" default="false" />
+  <arg name="categories_file" default="$(find villa_task)/launch/stage1/share/object_categories.xml" />
+
+  <machine name="tk1" address="hsrb-tk1.local" user="ubuntu" default="never" env-loader="/home/ubuntu/bin/villa_tools/internal/robot/tk1_env_loader.sh" unless="$(arg simulation)" />
+  <node machine="tk1" name="launcher" args="yolo_coco.launch publish_detections_image:=true" pkg="villa_yolo" type="launcher" output="screen" unless="$(arg simulation)" />
+
+  <group ns="/villa/groceries">
+        <!-- Launch Octomap /-->
+        <node pkg="octomap_server" type="octomap_server_node" name="octomap_server">
+            <param name="resolution" value="0.02" />
+            <param name="latch" value="false" />
+            <param name="filter_ground" value="false" />
+
+            <!-- fixed map frame (set to 'map' if SLAM or localization running!) -->
+            <param name="frame_id" type="string" value="map" />
+
+            <!-- maximum range to integrate (speedup!) -->
+            <param name="sensor_model/max_range" value="2.0" />
+
+            <!-- data source to integrate (PointCloud2) -->
+            <param name="pointcloud_min_z" value="0.05" unless="$(arg simulation)"/>
+            <param name="pointcloud_min_z" value="0.40" if="$(arg simulation)"/>
+            <param name="pointcloud_max_z" value="1.9" />
+            <remap from="cloud_in" to="/hsrb/head_rgbd_sensor/depth_registered/rectified_points" />
+        </node>
+
+        <!-- Launch surface detector services -->
+        <node name="horizontal_plane_detector" pkg="villa_surface_detectors" type="horizontal_plane_detector_server" output="screen" />
+        <node name="cupboard_detector" pkg="villa_surface_detectors" type="cupboard_detector_server" output="screen" />
+        
+	<node name="table_detector" pkg="villa_surface_detectors" type="table_detector_server" output="screen" />
+        <node name="shelf_object_detector" pkg="bwi_tabletop_perception" type="Shelftop_detection_node" output="screen" />
+
+        <!-- launch tabletop detection service -->
+        <node name="table_object_detector" pkg="bwi_tabletop_perception" type="table_object_detection_node" output="screen" />
+
+        <!-- launch tf_frames service -->
+        <node name="tf_broadcaster" pkg="villa_manipulation" type="tf_broadcaster" output="screen" />
+
+        <group ns="visualization">
+            <node name="countdown_timer_visualizer" pkg="villa_helpers" type="countdown_timer_visualizer" output="screen" />
+        </group>
+
+        <node name="report_generator" pkg="report_generation" type="report_generator" output="screen">
+            <param name="output_path" value="/tmp." />
+        </node>
+
+        <!-- start the task executor -->
+        <node name="groceries_node" pkg="villa_task" type="groceries" output="screen" if="$(arg run_task_executor)">
+            <!-- TODO: Notify TMC that HSRB interface doesn't support running in a namespace because it looks for this
+                       topic relative to the node's namespace -->
+            <remap from="/villa/groceries/robot_description" to="/robot_description" />
+            <param name="simulation" value="$(arg simulation)" />
+            <param name="autostart" value="$(arg autostart)" />
+            <param name="categories_file" value="$(arg categories_file)" />
+        </node>
+
+	</group>
+</launch>

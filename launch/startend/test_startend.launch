@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+
+<launch>
+    <arg name="multimap_file" default="$(find villa_simulation)/maps/bwi_nav/stage1_task1/multimap/one_level.yaml" />
+    
+    <include file="$(find villa_task)/launch/startend/startend.launch" >
+        <arg name="multimap_file" value="$(arg multimap_file)" />
+        <arg name="wrist" value="false" />
+        <arg name="start" value="true" />
+        <arg name="end" value="true" />
+        <arg name="start_name" value="table_1" />
+        <arg name="end_name" value="test_1" />
+        <arg name="task_server" value="null_task" />
+    </include>
+
+    <node name="null_task_node" pkg="villa_task" type="null_task" output="screen" />
+</launch>

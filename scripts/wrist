@@ -1,0 +1,22 @@
+#!/usr/bin/python
+
+from hsrb_interface import robot
+from std_srvs.srv import Trigger, TriggerResponse
+import rospy
+
+def trigger(req):
+    fts = robot.get('wrist_wrench')
+    while not rospy.is_shutdown():
+        reading = fts.wrench
+        if reading[0][0] > 5.0:
+            break
+    return TriggerResponse(success=True)
+
+def wrist_trigger_server():
+    rospy.init_node('wrist_trigger_node', anonymous=True)
+    rospy.Service('wrist_trigger', Trigger, trigger) 
+    rospy.spin()
+
+if __name__ == '__main__':
+    wrist_trigger_server()
+

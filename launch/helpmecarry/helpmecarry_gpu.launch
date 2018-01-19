@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<launch>
+    <arg name="gui" default="flase" />
+    <param name="use_gui" value="$(arg gui)"/>
+    <node pkg="rviz" type="rviz" name="rviz" args="-d $(find villa_task)/config/helpmecarry.rviz" />
+</launch>

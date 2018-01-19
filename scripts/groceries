@@ -1,0 +1,200 @@
+#!/usr/bin/python
+import rospy
+from hsrb_interface import Robot, exceptions
+from villa_task.groceries.detection_3d import Detection3DManager
+from villa_task.groceries.pick_and_place import grasp_any_object, place_anywhere
+from villa_task.groceries.octomap import OctomapManager
+from villa_task.groceries.transforms import TransformManager
+from villa_task.groceries import visualization
+from villa_task.groceries.world_model import WorldModel
+from villa_task.groceries.motion import MotionManager
+from villa_task.groceries.perception import PerceptionManager
+from villa_task.groceries.objectlabel import ObjectLabeller
+from villa_task.groceries.tasktimer import TaskTimer
+from villa_helpers.fast_move import FastMove
+from report_generation.srv import RecordCupboard, RecordFinalCupboard
+
+
+def perceive_table_objects(world_model, perception_manager, objectlabeller):
+    # clear world model
+    world_model.clear_table_objects()
+
+    objects = []
+    while (objects is None or len(objects) == 0) and not rospy.is_shutdown():
+        rospy.loginfo("Attempting to segment table objects")
+        # segment for objects on table
+        objects = perception_manager.perceive_tabletop(table)
+
+    # Label objects based on YOLO
+    labels = objectlabeller.label_objects(world_model.transform_manager, objects)
+    for name, label in labels.iteritems():
+        objects[name].label = label
+
+    world_model.add_table_objects(objects)
+
+tts = whole_body = omni_base = gripper = collision_world = wrench = fm = None
+
+rospy.loginfo("Obtaining robot resources...")
+while not rospy.is_shutdown():
+    try:
+        # Preparation to use robot functions
+        robot = Robot()
+
+        # Wrench is not available in simulation
+        if not rospy.get_param("~simulation"):
+            wrench = robot.get('wrist_wrench')
+        tts = robot.try_get('default_tts')
+        whole_body = robot.try_get('whole_body')
+        omni_base = robot.try_get('omni_base')
+        gripper = robot.try_get('gripper')
+        collision_world = robot.try_get('global_collision_world')
+        # Only need to set this once. Planning will grab fresh snapshots from this handle
+        whole_body._collision_world = collision_world
+        omni_base._collision_world = collision_world
+        # Fast move
+        fm = FastMove(omni_base)
+
+        tts.language = tts.ENGLISH
+        break
+    except (exceptions.ResourceNotFoundError,
+            exceptions.RobotConnectionError) as e:
+        rospy.logerr("Failed to obtain resource: {}\nRetrying...".format(e))
+
+if __name__ == '__main__':
+    ##################
+    # Initialization #
+    ##################
+
+    whole_body.move_to_go()
+    rospy.loginfo("Waiting for services...")
+    octomap_manager = collision_manager = transform_manager = landmark_detector = \
+        motion_manager = perception_manager = world_model = objectlabeller = None
+    while not rospy.is_shutdown():
+        try:
+            octomap_manager = OctomapManager()
+            landmark_detector = Detection3DManager()
+            motion_manager = MotionManager(omni_base, whole_body, fm, gripper, wrench)
+            perception_manager = PerceptionManager()
+            world_model = WorldModel(collision_world, TransformManager(whole_body))
+            objectlabeller = ObjectLabeller(rospy.get_param("~categories_file"), camera='xtion')
+
+            # Report generation services
+            report_generation = {
+                'record_cupboard': rospy.ServiceProxy('record_cupboard', RecordCupboard),
+                'record_final_cupboard': rospy.ServiceProxy('record_final_cupboard', RecordFinalCupboard)
+            }
+
+            break
+        except rospy.exceptions.ROSException as e:
+            print(e)
+            rospy.logerr("Failed to obtain services. Retrying...")
+
+    # Oddly, clearing collisions earlier than this seems to have no effect
+    collision_world.remove_all()
+    rospy.loginfo("Services ready")
+
+    if not rospy.get_param("~autostart"):
+        rospy.loginfo("Waiting for start signal")
+        motion_manager.detect_start_signal()
+
+    # Start task timer
+    # 4 minutes
+    task_timer = TaskTimer(4 * 60, motion_manager, world_model, objectlabeller, report_generation['record_final_cupboard'])
+
+    tts.say("Please open the cupboard")
+    world_model.start_pose = motion_manager.omnibase.pose
+    visualization.start_task_timer(world_model.start_pose)
+    # scan to detect table
+
+    scanning_future = motion_manager.head_scan_table()
+    rospy.sleep(6)
+    table, table_relation = None, None
+    while table is None and not rospy.is_shutdown():
+        rospy.loginfo("Attempting table detection")
+        octomap_manager.get_octomap_cloud()
+        table, table_relation = landmark_detector.detect_table(octomap_manager.octomap_cloud, world_model)
+
+    world_model.add_table(table, table_relation)
+    motion_manager.decide_table_approach_point(world_model.table)
+
+    # look at table
+    table_to_base = world_model.transform_manager.get_transform('base_link', 'table')
+    look_future = motion_manager.look_at(table_to_base, world_model.table.pose, True)
+    look_future(30)
+
+    perceive_table_objects(world_model, perception_manager, objectlabeller)
+
+    motion_manager.head_scan_cupboard()
+
+    motion_manager.approach_table()
+
+    # grasp first object
+    object_name, object = None, None
+    while object_name is None and not rospy.is_shutdown():
+        rospy.loginfo("Attempting to grasp any object")
+        object_name, object = grasp_any_object(motion_manager, world_model, max_num_tries=2)
+        if object_name is None:
+            motion_manager.move_to_neutral_without_fail()
+            motion_manager.approach_table_for_perception(world_model.table, world_model.transform_manager)
+            perceive_table_objects(world_model, perception_manager, objectlabeller)
+            motion_manager.approach_table()
+
+    if object.label:
+        tts.say('Picked up %s.' % object.label)
+    world_model.picked_up_object(object_name)
+
+    #motion_manager.body.move_to_joint_positions({"head_pan_joint":0.0})
+    motion_manager.groovy.unsafe_move_arm_to_neutral()
+
+    # scan to detect shelves
+    shelves, shelf_relations = None, None
+    while shelves is None and not rospy.is_shutdown():
+        rospy.loginfo("Attempting cupboard detection")
+        octomap_manager.get_octomap_cloud()
+        shelves, shelf_relations = landmark_detector.detect_cupboard(octomap_manager.octomap_cloud, world_model)
+
+    world_model.add_shelves(shelves, shelf_relations)
+
+    # Take initial picture of the Cupboard
+    shelf_to_base = world_model.transform_manager.get_transform('base_link', 'shelf0')
+    look_future = motion_manager.look_at(shelf_to_base, world_model.shelves[0].bbox.pose)
+    look_future(10)
+    rospy.sleep(1.5) # stabilize image
+    annotated_shelf = objectlabeller.annotate_image()
+    # The report generation needs to be fixed
+    report_generation['record_cupboard'](annotated_shelf)
+
+    motion_manager.decide_cupboard_approach_point(shelves[0], 'shelf0')
+    placed, shelf_index = place_anywhere(world_model, motion_manager, perception_manager)
+    if not placed:
+        rospy.logerr("Failed to place")
+        exit(1)
+    world_model.placed_current_object(shelf_index)
+
+    while len(world_model.table_objects) > 0 and not rospy.is_shutdown():
+        motion_manager.approach_table()
+
+        # Categorize shelves
+        motion_manager.observe_shelves(world_model.shelves, objectlabeller, world_model.transform_manager)
+        print([s.category for s in world_model.shelves])
+
+        object_name, object = grasp_any_object(motion_manager, world_model)
+        if object_name is None:
+            motion_manager.move_to_neutral_without_fail()
+            motion_manager.approach_table_for_perception(world_model.table, world_model.transform_manager)
+            perceive_table_objects(world_model, perception_manager, objectlabeller)
+            motion_manager.approach_table()
+            continue
+
+        if object.label:
+            tts.say('Picked up %s.' % object.label)
+
+        motion_manager.groovy.unsafe_move_arm_to_neutral()
+        world_model.picked_up_object(object_name)
+        placed, shelf_index = place_anywhere(world_model, motion_manager, perception_manager)
+        if not placed:
+            rospy.logerr("Failed to place")
+            exit(1)
+        world_model.placed_current_object(shelf_index)
+
+    world_model.collision_world.remove_all()

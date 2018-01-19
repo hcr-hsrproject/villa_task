@@ -1,0 +1,26 @@
+#!/usr/bin/python
+
+from std_srvs.srv import Empty, EmptyResponse, Trigger
+from villa_task import tts
+import rospy
+
+def wrist_trigger():
+    rospy.wait_for_service('wrist_trigger')
+    trigger = rospy.ServiceProxy('wrist_trigger', Trigger)
+    trigger()
+
+def inspect_cb(req):
+    rospy.loginfo("Waiting for inspection...")
+    speech = tts.TextToSpeech()
+    speech.say("Please press my wrist when you want me to leave.", wait=True)
+    wrist_trigger()
+    rospy.loginfo("Felt wrist tap.")
+    return EmptyResponse()
+
+def inspection_task_server():
+    rospy.init_node('inspection_task_node')
+    s = rospy.Service('inspection_task', Empty, inspect_cb)
+    rospy.spin()
+
+if __name__ == '__main__':
+    inspection_task_server()    

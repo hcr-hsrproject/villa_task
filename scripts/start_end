@@ -1,0 +1,152 @@
+#!/usr/bin/python
+
+from bwi_kr_execution.msg import ExecutePlanAction, ExecutePlanGoal, AspRule, AspFluent
+from std_srvs.srv import Empty, Trigger
+from actionlib_msgs.msg import GoalStatus
+import actionlib
+import rospkg
+import rospy
+from villa_task import tts
+
+rospack = rospkg.RosPack()
+
+def isDone(status):
+    return status == GoalStatus.PREEMPTED \
+           or status == GoalStatus.SUCCEEDED \
+           or status == GoalStatus.ABORTED \
+           or status == GoalStatus.REJECTED \
+           or status == GoalStatus.RECALLED
+
+def aborted(status):
+    return status == GoalStatus.ABORTED
+
+def preempted(status):
+    return status == GoalStatus.PREEMPTED
+
+def succeeded(status):
+    return status == GoalStatus.SUCCEEDED
+
+class StartEnd(object):
+    def __init__(self, wrist=False, start=True, end=True, start_name='start', end_name='end'):
+        self.wrist = wrist
+        self.start = start
+        self.end = end
+
+        self.start_name = start_name
+        self.end_name = end_name
+
+        self.task_topic = 'task'
+
+        self.nav_client = None
+        self.task_client = None
+
+        self.writeFoundStartEnd()
+
+    def writeFoundStartEnd(self):
+        f = open(rospack.get_path('bwi_kr_execution')+'/domain/start_end_facts.asp', 'w')
+        f.write('found(' + self.start_name + ',0).\n')
+        f.write('found(' + self.end_name + ',0).\n')
+        f.close()
+
+    def setupNavClient(self):
+        self.nav_client = actionlib.SimpleActionClient('action_executor/execute_plan', ExecutePlanAction)
+        self.nav_client.wait_for_server()
+
+    def setupTaskClient(self):
+        rospy.wait_for_service(self.task_topic)
+        self.task_client = rospy.ServiceProxy(self.task_topic, Empty)
+
+    def wristTrigger(self):
+        rospy.wait_for_service('wrist_trigger')
+        trigger = rospy.ServiceProxy('wrist_trigger', Trigger)
+        trigger()
+
+    def getGoalMsg(self, loc):
+        goal = ExecutePlanGoal()
+        rule = AspRule()
+        fluent = AspFluent()
+
+        fluent.name = "not facing"        
+        fluent.variables = [loc]
+        
+        rule.body = [fluent]
+        goal.aspGoal = [rule]
+
+        return goal
+
+    def getState(self):
+        return self.nav_client.get_state()
+
+    def goto(self, loc):
+        rospy.loginfo("Sending goal")
+        self.nav_client.send_goal(self.getGoalMsg(loc))
+
+        rate = rospy.Rate(10)
+        while not rospy.is_shutdown() and not isDone(self.getState()):
+            rate.sleep()
+
+        if not isDone(self.getState()):
+            rospy.loginfo("Canceling goal")
+            for i in range(50):
+                rate.sleep()
+
+        status = self.getState()
+        if aborted(status):
+            rospy.loginfo("Aborted")
+        elif preempted(status):
+            rospy.loginfo("Preempted")
+        elif succeeded(status):
+            rospy.loginfo("Succeeded!")
+        else:
+            rospy.loginfo("Terminated")
+
+        return succeeded(status)
+
+    def gotoStart(self):
+        return self.goto(self.start_name)
+
+    def gotoEnd(self):
+        return self.goto(self.end_name)
+
+    def runTask(self):
+        self.task_client()
+
+    def updateBegin(self, msg):
+        self.begin = msg.data
+
+    def run(self):
+        self.setupNavClient()
+        self.setupTaskClient()
+        
+        speech = tts.TextToSpeech()
+        speech.say("I am here for inspection. Please press my wrist when the door is open.")
+        
+        if self.wrist:
+            rospy.loginfo("Waiting for wrist trigger...") 
+            self.wristTrigger()       
+ 
+        if self.start:
+            success = self.gotoStart()
+            while not success:
+                success = self.gotoStart()
+
+        self.runTask()
+
+        if self.end:
+            success = self.gotoEnd()
+            while not success:
+                success = self.gotoEnd()
+
+        rospy.loginfo("Done!")
+
+if __name__ == '__main__':
+    rospy.init_node('start_end_node') 
+    wrist = rospy.get_param('/start_end_node/wrist')
+    start = rospy.get_param('/start_end_node/start')
+    end = rospy.get_param('/start_end_node/end') 
+    start_name = rospy.get_param('/start_end_node/start_name') 
+    end_name = rospy.get_param('/start_end_node/end_name') 
+
+    start_end = StartEnd(wrist, start, end, start_name, end_name)
+    start_end.run()
+

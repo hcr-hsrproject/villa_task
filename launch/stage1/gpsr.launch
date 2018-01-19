@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<launch>
+    <machine name="tk1" address="hsrb-tk1.local" user="ubuntu" default="never" env-loader="/home/ubuntu/bin/villa_tools/internal/robot/tk1_env_loader.sh" />
+    <node machine="tk1" name="launcher" args="yolo_coco.launch publish_detections_image:=true" pkg="villa_yolo" type="launcher" output="screen" />
+
+    <node name="vlogger" pkg="villa_helpers" type="vlogger" args="--logdir $(env HOME)/vlog" />
+    <node name="gender_publisher" pkg="gender_identification" type="gender_publisher" output="screen" />
+    <node name="age_publisher" pkg="age_identification" type="age_publisher" />
+    <node name="sound_localization" pkg="villa_sound_localization" type="sound_localization" output="screen" />
+    <node name="google_speech" pkg="villa_audio" type="google_speech.py" output="screen" />
+    <node name="audiologger" pkg="villa_audio" type="audiologger" args="--namespace gpsr" />
+    <node name="gpsr" pkg="villa_task" type="gpsr.py" output="screen" />
+</launch>

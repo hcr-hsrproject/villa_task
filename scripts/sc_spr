@@ -1,0 +1,122 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Wed Jul 26 22:06:37 2017
+
+@author: Taylor
+"""
+
+from std_srvs.srv import Empty, EmptyResponse
+import rospy
+from std_msgs.msg import String, Bool
+from tmc_msgs.msg import Voice
+import time
+import math
+import functools
+import random
+from hsrb_interface import Robot, exceptions
+from villa_task import tts
+from villa_task.spr.headcontrol import HeadControl
+from villa_task.spr.crowdsurvey import ScanCrowd
+from villa_task.spr.questionanswerer import AnswerBase
+from villa_task.spr.motion import MotionManager
+from villa_helpers.fast_move import FastMove
+import re
+from hsrb_interface import geometry
+
+def spr_cb(req):
+    rospy.loginfo("Performing task...")
+    act()
+    return EmptyResponse()
+    
+def act():
+    rospy.loginfo("Obtaining robot resources...")
+    while not rospy.is_shutdown():
+        try:
+            # Preparation to use robot functions
+            robot = Robot()
+
+            whole_body = robot.get('whole_body')
+            omni_base = robot.get('omni_base')
+            wrench = robot.get('wrist_wrench')
+            fastmove = FastMove(omni_base)
+            speech = tts.TextToSpeech()
+            break
+        except (exceptions.ResourceNotFoundError,
+                exceptions.RobotConnectionError) as e:
+            rospy.logerr("Failed to obtain resource: {}\nRetrying...".format(e))
+
+    # Move robot body to a starting position
+    whole_body.move_to_neutral()
+
+    # Detect the start signal
+    rospy.loginfo("Waiting for start signal")
+
+    # Block until we get told to start the test ########
+    MotionManager.wait_for_start_signal(wrench)
+
+    # Obtain services
+    while not rospy.is_shutdown():
+        try:
+            crowd_watcher = ScanCrowd()
+            head_status = HeadControl()
+            answerhandler = AnswerBase()
+            motion = MotionManager(fastmove, whole_body, speech, answerhandler)
+            break
+        except rospy.exceptions.ROSException as e:
+            print(e)
+            rospy.logerr("Failed to obtain services. Retrying...")
+
+    # Start by having the robot say it wants to play
+    answerhandler.set_speech_time(rospy.get_time())
+    speech.say("Let's play a riddle game", wait=True)
+    answerhandler.set_speech_time(rospy.get_time())
+
+    # Wait for people to get in position and then turn
+    rospy.sleep(10)
+
+    # Turn 180
+    head_status.stop()
+    fastmove.go(0., 0., math.pi, 100., relative=True)
+    rospy.sleep(1.0)
+
+    print("Looking for people...")
+    # Count the number of people (and associated genders) in the crowd
+    answerhandler.set_speech_time(rospy.get_time())
+    crowd_watcher.count_genders(speech)
+    answerhandler.set_speech_time(rospy.get_time())
+    crowd_watcher.save_information()
+    print("Found people")
+
+    # Begin riddles
+    rospy.sleep(0.5) # natural sounding pause
+    answerhandler.set_speech_time(rospy.get_time())
+    speech.say("Who wants to play riddles with me?", wait=True)
+    answerhandler.set_speech_time(rospy.get_time())
+    rospy.sleep(0.5)
+
+    # Start listening to localization
+    rospy.loginfo("Starting motion handler")
+    motion.start()
+
+    # Check continously to see if the robot should answer
+    while not rospy.is_shutdown():
+        if answerhandler.get_question_count() <= 5 and answerhandler.is_unanswered():
+            answerhandler.answer(speech)
+        elif answerhandler.is_unanswered() and rospy.get_time() - answerhandler.get_listen_time() > 9.5 and not motion.turning:
+            rospy.loginfo("Answering because sound localization took too long")
+            answerhandler.answer(speech)
+        if answerhandler.get_question_count() >= 15 and not answerhandler.is_unanswered():
+            rospy.loginfo("Question count:", answerhandler.get_question_count())
+            rospy.loginfo("Ending because games are over")
+            rospy.sleep(0.5)
+            answerhandler.set_speech_time(rospy.get_time())
+            speech.say("Thank you for playing a riddle game with me.", wait=True)
+            answerhandler.set_speech_time(rospy.get_time())
+            rospy.sleep(0.5)
+            motionhandler.stop()
+            break
+            #EXIT THE ROOM HERE
+
+if __name__ == '__main__':
+    s = rospy.Service('spr_task', Empty, spr_cb)
+    #act()

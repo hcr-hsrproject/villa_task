@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<launch>
+    <node name="vlogger" pkg="villa_helpers" type="vlogger" args="--logdir $(env HOME)/vlog" />
+    <node name="gender_publisher" pkg="gender_identification" type="gender_publisher" output="screen" />
+    <node name="age_publisher" pkg="age_identification" type="age_publisher" />
+    <node name="sound_localization" pkg="villa_sound_localization" type="sound_localization" output="screen" />
+    <node name="google_speech" pkg="villa_audio" type="google_speech.py" output="screen" />
+    <node name="audiologger" pkg="villa_audio" type="audiologger" args="--namespace spr" />
+    <node name="spr" pkg="villa_task" type="spr" output="screen" />
+</launch>

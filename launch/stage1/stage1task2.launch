@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<launch>
+  <!--<group>
+        <machine name="tk1" address="hsrb-tk1.local" user="ubuntu" default="true" />
+        <include file="$(find hsrb_darknet_tutorials)/launch/default_model_demo.launch" />
+    </group>-->
+
+    <node name="sound_localization" pkg="villa_sound_localization" type="sound_localization" output="screen" />
+    <node name="google_speech" pkg="villa_audio" type="google_speech.py" output="screen" />
+    <node name="task2" pkg="villa_task" type="task2.py" output="screen" />
+</launch>

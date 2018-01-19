@@ -1,0 +1,92 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+import rospy
+from hsrb_interface import Robot
+from hsrb_interface import exceptions
+
+#from villa_task.helpmecarry.face_recog_manager import FaceRecogManager
+from villa_task.helpmecarry.handover import HandoverManager
+from villa_task.helpmecarry.listener import SpeechManager
+from villa_task.helpmecarry.RecognitionManager import RecognitionManager
+from villa_task.helpmecarry.human_following import HumanFollowingManager
+from villa_task.helpmecarry.world_model import WorldModel
+
+
+tts = whole_body = omni_base = gripper = collision_world = wrench = fm = None
+# Preparation to use robot functions
+rospy.loginfo("Obtaining robot resources...")
+while not rospy.is_shutdown():
+    try:
+        # Preparation to use robot functions
+        robot = Robot()
+
+        # Wrench is not available in simulation
+        if not rospy.get_param("~simulation"):
+            wrench = robot.get('wrist_wrench')
+        tts = robot.try_get('default_tts')
+        whole_body = robot.try_get('whole_body')
+        gripper = robot.try_get('gripper')
+
+        tts.language = tts.ENGLISH
+        break
+    except (exceptions.ResourceNotFoundError,
+            exceptions.RobotConnectionError) as e:
+        rospy.logerr("Failed to obtain resource: {}\nRetrying...".format(e))
+
+
+face_detect_manger= None 
+landmark_detector = None
+speech_manager    = None
+human_following_manager = None
+recognition_manager = None
+world_model = None
+handover_manager = None
+
+
+
+if __name__=='__main__':
+
+    ##################
+    # Initialization #
+    ##################
+
+    rospy.loginfo("Waiting for services...")
+    while not rospy.is_shutdown():
+        try:
+            speech_manager = SpeechManager()
+            recognition_manager = RecognitionManager()
+            #face_detect_manger = FaceRecogManager()
+            human_following_manager = HumanFollowingManager()
+            handover_manager = HandoverManager(omni_base,whole_body,gripper)
+            world_model = WorldModel()
+            rospy.wait_for_service('face_recognition_run')
+            break
+        except rospy.exceptions.ROSException as e:
+            rospy.logerr(e)
+            rospy.logerr("Failed to obtain services. Retrying...")
+
+ 
+    rospy.loginfo("Services ready")
+
+    tts.say("Waiting for Operators...")
+    speech_manager.listen_for_activation()
+    tts.say("I am gonna take a picture")
+    # image_name = recognition_manager.capture_operator_photo()
+    # world_model.image_name = image_name
+
+    tts.say("What is your name?")
+    # operator_name = speech_manager.capture_operator_name()
+    # world_model.operator_name = operator_name
+
+    # tts.say("Thank you for your patience")
+    rospy.sleep(6)
+    tts.say("I am ready to follow you")
+    human_following_manager.start_following()
+
+    speech_manager.listen_for_stop()
+    handover_manager.execute_handover()
+
+
+        
+
+

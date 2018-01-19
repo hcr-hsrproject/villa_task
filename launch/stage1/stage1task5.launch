@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<launch>
+
+  <!-- Launch Octomap /-->
+  <node pkg="octomap_server" type="octomap_server_node" name="octomap_server">
+        <param name="resolution" value="0.02" />
+        <param name="latch" value="false" />
+        <param name="filter_ground" value="false" />
+        <!-- fixed map frame (set to 'map' if SLAM or localization running!) -->
+        <param name="frame_id" type="string" value="map" />
+        
+        <!-- maximum range to integrate (speedup!) -->
+        <param name="sensor_model/max_range" value="2.0" />
+        
+        <!-- data source to integrate (PointCloud2) -->
+        <remap from="cloud_in" to="/hsrb/head_rgbd_sensor/depth_registered/rectified_points" />
+  </node>
+
+  <!-- Launch surface detector services -->
+	<node name="horizontal_plane_detector_server" pkg="villa_surface_detectors" type="horizontal_plane_detector_server" output="screen">
+	</node>
+	<node name="cupboard_detector_server" pkg="villa_surface_detectors" type="cupboard_detector_server" output="screen">
+	</node>		
+	<node name="table_detector_server" pkg="villa_surface_detectors" type="table_detector_server" output="screen">
+	</node>
+	
+	<!-- launch tabletop detection service -->
+	<node name="table_object_detection_node" pkg="bwi_tabletop_perception" type="table_object_detection_node" output="screen">
+	</node>
+	
+    <!-- launch tf_frames service -->
+	<node name="tf_frames_node" pkg="villa_manipulation" type="tf_frames.py" output="screen">
+	</node>
+	
+	
+</launch>

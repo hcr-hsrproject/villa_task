@@ -1,0 +1,26 @@
+Living room: {position: [-4.33797359467, -0.610075473785, 0.0], orientation: [0.0, 0.0, -0.040127798755, 0.999194555513]}
+Kitchen: {position: [-3.58103847504, 4.04767894745, 0.0], orientation: [0.0, 0.0, -0.986256516198, 0.165221319016]}
+Bedroom: {position: [-5.59433841705, 7.21811580658, 0.0], orientation: [0.0, 0.0, 0.693205630947, 0.720739865155]}
+Entrance: {position: [-1.77357971668, 8.54728603363, 0.0], orientation: [0.0, 0.0, -0.94774750069, 0.319021433349]}
+Balcony: {position: [1.53657221794, 0.36715555191, 0.0], orientation: [0.0, 0.0, 0.0876507028374, 0.996151270788]}
+Desk - Living room: {postion: [-4.44579601288, -2.33244609833, 0.0], orientation: [0.0, 0.0, 0.0588964791778, 0.998264095688]}
+Left rack - Living room: {position: [-4.83545351028, -2.47897481918, 0.0], orientation: [0.0, 0.0, -0.982456141813, 0.186493778484]}
+Right rack - Living room: {position: [-5.04980659485, -1.71452116966, 0.0], orientation: [0.0, 0.0, -0.973641803818, 0.228082524226]}
+Sideboard - Kitchen: {position: [, , 0.0], orientation: [0.0, 0.0, , ]}
+Kitchen table - Kitchen: {position: [, , 0.0], orientation: [0.0, 0.0, , ]}
+Little desk - Bedroom: {position: [, , 0.0], orientation: [0.0, 0.0, , ]}
+Teepee - Bedroom: {position: [, , 0.0], orientation: [0.0, 0.0, , ]}
+Bed - Bedroom: {position: [, , 0.0], orientation: [0.0, 0.0, , ]}
+Entrance shelf - Entrance: {position:[-1.47680687904, 8.24367237091, 0.0], orientation: [0.0, 0.0, -0.602409152665, 0.798187454665]}
+Kitchen shelf - Kitchen: {position:[-3.40164422989, 3.31812024117, 0.0], orientation: [0.0, 0.0, -0.548114589851, 0.83640324987]}
+Bookcase - Living room: {position:[-2.14054965973, 1.41824030876, 0.0], orientation: [0.0, 0.0, 0.858303709446, 0.513142029414]}
+Sofa - Living room: {position:[-3.06603384018, -0.432485342026, 0.0], orientation: [0.0, 0.0, 0.186481287294, 0.982458512859]}
+Coffee table - Living room: {position:[-0.182188034058, -0.885160684586, 0.0], orientation: [0.0, 0.0, 0.910288638342, 0.413974147628]}
+TV - Living room: {position:[-1.16490113735, -1.03271389008, 0.0], orientation: [0.0, 0.0, -0.574914490442, 0.818213498227]}
+Bistro table - Balcony: {position:[1.27974963188, 0.339876174927, 0.0], orientation: [0.0, 0.0, 0.593785044879, 0.804623713594]}
+Left planks - Balcony: {position:[0.0, 0.0, 0.0], orientation: [0.0, 0.0, 0.0, 0.0]}
+Right planks - Balcony: {position:[0.0, 0.0, 0.0], orientation: [0.0, 0.0, 0.0, 0.0]}
+Balcony shelf - Balcony: {position:[0.0, 0.0, 0.0], orientation: [0.0, 0.0, 0.0, 0.0]}
+Kitchen counter - Kitchen: {position:[0.0, 0.0, 0.0], orientation: [0.0, 0.0, 0.0, 0.0]}
+Fridge - Kitchen: {position:[0.0, 0.0, 0.0], orientation: [0.0, 0.0, 0.0, 0.0]}
+Kitchen rack - Kitchen: {position:[0.0, 0.0, 0.0], orientation: [0.0, 0.0, 0.0, 0.0]}

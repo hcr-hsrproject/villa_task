@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+
+<launch>
+    <arg name="multimap_file" default="$(find villa_simulation)/maps/bwi_nav/arena/multimap/one_level.yaml" />
+    <!--arg name="multimap_file" default="$(find villa_simulation)/maps/bwi_nav/stage1_task1/multimap/one_level.yaml" /-->
+    
+    <include file="$(find villa_task)/launch/startend/startend.launch" >
+        <arg name="multimap_file" value="$(arg multimap_file)" />
+        <arg name="wrist" value="true" />
+        <arg name="start" value="true" />
+        <arg name="end" value="true" />
+        <arg name="start_name" value="start" />
+        <arg name="end_name" value="end" />
+        <arg name="task_server" value="inspection_task" />
+    </include>
+
+    <node name="wrist_trigger_node" pkg="villa_task" type="mock_wrist" output="screen" />
+    <node name="inspection_task_node" pkg="villa_task" type="inspection" output="screen" />
+</launch>

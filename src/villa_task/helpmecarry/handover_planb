@@ -1,0 +1,70 @@
+#!/usr/bin/python
+import rospy
+from hsrb_interface import Robot, exceptions
+from std_msgs.msg import *
+from human_filter.srv import set_target_to_follow
+# from std_msgs.msg import Int8
+from hsrb_interface import Robot
+
+while not rospy.is_shutdown():
+    try:
+        # Preparation to use robot functions
+        robot = Robot()
+        # Wrench is not available in simulation
+        # if not rospy.get_param("~simulation"):
+        #     wrench = robot.get('wrist_wrench')
+        tts = robot.try_get('default_tts')
+        whole_body = robot.try_get('whole_body')
+        gripper = robot.try_get('gripper')
+        tts.language = tts.ENGLISH
+
+        break
+    except (exceptions.ResourceNotFoundError,
+            exceptions.RobotConnectionError) as e:
+        rospy.logerr("Failed to obtain resource: {}\nRetrying...".format(e))
+
+class HandoverManager(object):
+    def __init__(self,whole_body,gripper):
+       
+        self.to_width =0.0
+        self.body = whole_body
+        self.gripper = gripper
+        act_topic = 'handover_activation_cmd'
+        rospy.Subscriber(act_topic, Bool, self.activation_callback)
+        self.nav_srv_cmd = std_msgs.msg.Bool()
+        self.nav_srvpub=rospy.Publisher('/act_nav_srv_cmd',Bool,queue_size=10)
+        # self.gripper.command()
+    def listener(self):
+        rospy.spin()
+    def activation_callback(self,msg):
+        if msg.data:
+           tts.say("Please give me objects")
+           self.execute_handover()
+
+
+    def execute_handover(self):
+        self.body.move_to_joint_positions({"arm_lift_joint": 0.1, "arm_flex_joint": -0.35})
+        self.open_gripper(1.0)
+        rospy.sleep(2)
+        self.close_gripper(0.2) 
+        tts.say("where shoud I go?")
+        self.nav_srv_cmd.data=True
+        print("activation navigation service")
+        self.nav_srvpub.publish(self.nav_srv_cmd)
+
+
+    def open_gripper(self, to_width=1.2):
+        self.gripper.command(to_width)
+
+    def close_gripper(self, to_width=0.2):
+        self.gripper.command(to_width)
+
+
+if __name__ == '__main__':
+    # print("Pre Initialize node")
+    # rospy.init_node('handover_execution')
+    print("Initialize node")
+    handover_manager = HandoverManager(whole_body,gripper)
+    print("Object created")
+    #handover_manager.execute_handover()
+    handover_manager.listener()

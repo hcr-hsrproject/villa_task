@@ -1,0 +1,18 @@
+#!/usr/bin/python
+
+from std_srvs.srv import Empty, EmptyResponse
+import rospy
+
+def null_cb(req):
+    rospy.loginfo("Performing task...")
+    rospy.sleep(5)
+    return EmptyResponse()
+
+def null_task_server():
+    rospy.init_node('null_task_node')
+    s = rospy.Service('null_task', Empty, null_cb)
+    rospy.spin()
+
+if __name__ == '__main__':
+    null_task_server()    
+

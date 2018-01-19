@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<launch>
+    <arg name="multimap_file" default="$(find villa_simulation)/maps/bwi_nav/arena/multimap/one_level.yaml" />
+    
+    <include file="$(find villa_task)/launch/startend/startend.launch" >
+        <arg name="multimap_file" value="$(arg multimap_file)" />
+        <arg name="wrist" value="false" />
+        <arg name="start" value="false" />
+        <arg name="end" value="true" />
+        <arg name="end_name" value="end" />
+        <arg name="task_server" value="sc_spr" />
+    </include>
+    
+    <node name="vlogger" pkg="villa_helpers" type="vlogger" args="--logdir $(env HOME)/vlog" />
+    <node name="gender_publisher" pkg="gender_identification" type="gender_publisher" output="screen" />
+    <node name="age_publisher" pkg="age_identification" type="age_publisher" />
+    <node name="sound_localization" pkg="villa_sound_localization" type="sound_localization" output="screen" />
+    <node name="google_speech" pkg="villa_audio" type="google_speech.py" output="screen" />
+    <node name="audiologger" pkg="villa_audio" type="audiologger" args="--namespace spr" />
+    <node name="spr" pkg="villa_task" type="spr" output="screen" />
+</launch>
