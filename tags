@@ -1,0 +1,496 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+AnswerBase	src/villa_task/spr/commandanswerer.py	/^class AnswerBase():$/;"	c
+AnswerBase	src/villa_task/spr/questionanswerer.py	/^class AnswerBase():$/;"	c
+AnswerBase	src/villa_task/task3/questionanswerer.py	/^class AnswerBase():$/;"	c
+BASE_RADIUS	src/villa_task/groceries/motion.py	/^    BASE_RADIUS = 0.21$/;"	v	class:MotionManager
+BASE_RADIUS	src/villa_task/helpmecarry/motion.py	/^    BASE_RADIUS = 0.21$/;"	v	class:MotionManager
+CAMERAS	src/villa_task/groceries/objectlabel.py	/^CAMERAS = {$/;"	v
+CollisionWorldManager	src/villa_task/groceries/collision_world_manager.py	/^class CollisionWorldManager:$/;"	c
+CollisionWorldManager	src/villa_task/task5/collision_world_manager.py	/^class CollisionWorldManager:$/;"	c
+DetectedObject	src/villa_task/groceries/perception.py	/^class DetectedObject:$/;"	c
+Detection3DManager	src/villa_task/groceries/detection_3d.py	/^class Detection3DManager:$/;"	c
+Detection3DManager	src/villa_task/task5/detection_3d.py	/^class Detection3DManager:$/;"	c
+ENGLISH	src/villa_task/tts.py	/^    ENGLISH = Voice.kEnglish$/;"	v	class:TextToSpeech
+FaceRecogManager	src/villa_task/helpmecarry/face_recog_manager.py	/^class FaceRecogManager(object):$/;"	c
+GraspException	src/villa_task/groceries/exceptions.py	/^class GraspException(Exception):$/;"	c
+HEAD_MAX_PAN	src/villa_task/groceries/motion.py	/^    HEAD_MAX_PAN = 1.75$/;"	v	class:MotionManager
+HEAD_MAX_PAN	src/villa_task/helpmecarry/motion.py	/^    HEAD_MAX_PAN = 1.75$/;"	v	class:MotionManager
+HEAD_MIN_PAN	src/villa_task/groceries/motion.py	/^    HEAD_MIN_PAN = -3.84$/;"	v	class:MotionManager
+HEAD_MIN_PAN	src/villa_task/helpmecarry/motion.py	/^    HEAD_MIN_PAN = -3.84$/;"	v	class:MotionManager
+HandoverManager	src/villa_task/helpmecarry/handover.py	/^class HandoverManager(object):$/;"	c
+HandoverManager	src/villa_task/helpmecarry/handover_planb	/^class HandoverManager(object):$/;"	c
+HeadControl	src/villa_task/helpmecarry/headcontrol.py	/^class HeadControl():$/;"	c
+HeadControl	src/villa_task/spr/headcontrol.py	/^class HeadControl():$/;"	c
+HeadControl	src/villa_task/task3/headcontrol.py	/^class HeadControl():$/;"	c
+HumanFollowingManager	src/villa_task/helpmecarry/following_srv_client.py	/^class HumanFollowingManager(object):$/;"	c
+HumanFollowingManager	src/villa_task/helpmecarry/human_following.py	/^class HumanFollowingManager(object):$/;"	c
+ItemNotGraspedFailure	src/villa_task/groceries/exceptions.py	/^class ItemNotGraspedFailure(GraspException):$/;"	c
+LocatePerson	src/villa_task/spr/personangle.py	/^class LocatePerson():$/;"	c
+LocatePerson	src/villa_task/task3/personangle.py	/^class LocatePerson():$/;"	c
+MidGraspPlanFailure	src/villa_task/groceries/exceptions.py	/^class MidGraspPlanFailure(GraspException):$/;"	c
+MotionManager	src/villa_task/groceries/motion.py	/^class MotionManager:$/;"	c
+MotionManager	src/villa_task/helpmecarry/motion.py	/^class MotionManager:$/;"	c
+MotionManager	src/villa_task/spr/motion.py	/^class MotionManager(object):$/;"	c
+MotionManager	src/villa_task/task5/motion.py	/^class MotionManager:$/;"	c
+ObjectLabeller	src/villa_task/groceries/objectlabel.py	/^class ObjectLabeller(object):$/;"	c
+OctomapManager	src/villa_task/groceries/octomap.py	/^class OctomapManager:$/;"	c
+OctomapManager	src/villa_task/task5/octomap.py	/^class OctomapManager:$/;"	c
+PerceptionManager	src/villa_task/groceries/perception.py	/^class PerceptionManager:$/;"	c
+PerceptionManager	src/villa_task/task5/perception.py	/^class PerceptionManager:$/;"	c
+PlaceException	src/villa_task/groceries/exceptions.py	/^class PlaceException(Exception):$/;"	c
+PreGraspPlanFailure	src/villa_task/groceries/exceptions.py	/^class PreGraspPlanFailure(GraspException):$/;"	c
+RecognitionManager	src/villa_task/helpmecarry/RecognitionManager.py	/^class RecognitionManager:$/;"	c
+SAFETY_THRESHOLD	src/villa_task/groceries/tasktimer.py	/^    SAFETY_THRESHOLD = 10 # seconds before time limit to execute end callbacks$/;"	v	class:TaskTimer
+ScanCrowd	src/villa_task/spr/crowdsurvey.py	/^class ScanCrowd():$/;"	c
+ScanCrowd	src/villa_task/task3/crowdsurvey.py	/^class ScanCrowd():$/;"	c
+Shelf	src/villa_task/groceries/world_model.py	/^class Shelf:$/;"	c
+SpeechManager	src/villa_task/gpsr_navigation/listener_gpsr_nav	/^class SpeechManager():$/;"	c
+SpeechManager	src/villa_task/helpmecarry/listener.py	/^class SpeechManager():$/;"	c
+SpeechManager	src/villa_task/helpmecarry/listener_planb	/^class SpeechManager():$/;"	c
+SpeechManager	src/villa_task/helpmecarry/listener_planb.py	/^class SpeechManager():$/;"	c
+StartEnd	scripts/start_end	/^class StartEnd(object):$/;"	c
+TaskTimer	src/villa_task/groceries/tasktimer.py	/^class TaskTimer(object):$/;"	c
+TextToSpeech	src/villa_task/tts.py	/^class TextToSpeech(object):$/;"	c
+TransformManager	src/villa_task/groceries/transforms.py	/^class TransformManager:$/;"	c
+TransformManager	src/villa_task/helpmecarry/transforms.py	/^class TransformManager:$/;"	c
+TransformManager	src/villa_task/task5/transforms.py	/^class TransformManager:$/;"	c
+WorldModel	src/villa_task/groceries/world_model.py	/^class WorldModel:$/;"	c
+WorldModel	src/villa_task/helpmecarry/world_model.py	/^class WorldModel:$/;"	c
+WorldModel	src/villa_task/task5/world_model.py	/^class WorldModel:$/;"	c
+__begin_move	src/villa_task/spr/motion.py	/^    def __begin_move(self, _):$/;"	m	class:MotionManager	file:
+__camera_image_callback	src/villa_task/groceries/objectlabel.py	/^    def __camera_image_callback(self, data):$/;"	m	class:ObjectLabeller	file:
+__end_cb	src/villa_task/groceries/tasktimer.py	/^    def __end_cb(self):$/;"	m	class:TaskTimer	file:
+__find_object_category	src/villa_task/groceries/objectlabel.py	/^    def __find_object_category(self, object_name):$/;"	m	class:ObjectLabeller	file:
+__init__	scripts/start_end	/^    def __init__(self, wrist=False, start=True, end=True, start_name='start', end_name='end'):$/;"	m	class:StartEnd
+__init__	src/villa_task/gpsr_navigation/gpsr_navi_client.py	/^	def __init__(self):$/;"	m	class:gpsrnaviManager
+__init__	src/villa_task/gpsr_navigation/listener_gpsr_nav	/^    def __init__(self):$/;"	m	class:SpeechManager
+__init__	src/villa_task/groceries/collision_world_manager.py	/^    def __init__(self, collision_world):$/;"	m	class:CollisionWorldManager
+__init__	src/villa_task/groceries/detection_3d.py	/^    def __init__(self):$/;"	m	class:Detection3DManager
+__init__	src/villa_task/groceries/motion.py	/^    def __init__(self, omnibase, whole_body, fastmove, gripper, wrench):$/;"	m	class:MotionManager
+__init__	src/villa_task/groceries/objectlabel.py	/^    def __init__(self, categories_file, camera='lstereo', debug=False):$/;"	m	class:ObjectLabeller
+__init__	src/villa_task/groceries/octomap.py	/^    def __init__(self):$/;"	m	class:OctomapManager
+__init__	src/villa_task/groceries/perception.py	/^    def __init__(self):$/;"	m	class:PerceptionManager
+__init__	src/villa_task/groceries/perception.py	/^    def __init__(self, bbox):$/;"	m	class:DetectedObject
+__init__	src/villa_task/groceries/tasktimer.py	/^    def __init__(self, timelimit, motion, world_model, objectlabeller, report_service):$/;"	m	class:TaskTimer
+__init__	src/villa_task/groceries/transforms.py	/^    def __init__(self, whole_body):$/;"	m	class:TransformManager
+__init__	src/villa_task/groceries/world_model.py	/^    def __init__(self, collision_world, transform_manager):$/;"	m	class:WorldModel
+__init__	src/villa_task/groceries/world_model.py	/^    def __init__(self, name, bbox, category=''):$/;"	m	class:Shelf
+__init__	src/villa_task/helpmecarry/RecognitionManager.py	/^    def __init__(self):$/;"	m	class:RecognitionManager
+__init__	src/villa_task/helpmecarry/face_recog_manager.py	/^    def __init__(self, wait=0.0):$/;"	m	class:FaceRecogManager
+__init__	src/villa_task/helpmecarry/following_srv_client.py	/^    def __init__(self):$/;"	m	class:HumanFollowingManager
+__init__	src/villa_task/helpmecarry/handover.py	/^    def __init__(self,omnibase,whole_body,gripper):$/;"	m	class:HandoverManager
+__init__	src/villa_task/helpmecarry/handover_planb	/^    def __init__(self,whole_body,gripper):$/;"	m	class:HandoverManager
+__init__	src/villa_task/helpmecarry/headcontrol.py	/^    def __init__(self):$/;"	m	class:HeadControl
+__init__	src/villa_task/helpmecarry/human_following.py	/^    def __init__(self):$/;"	m	class:HumanFollowingManager
+__init__	src/villa_task/helpmecarry/listener.py	/^    def __init__(self):$/;"	m	class:SpeechManager
+__init__	src/villa_task/helpmecarry/listener_planb	/^    def __init__(self):$/;"	m	class:SpeechManager
+__init__	src/villa_task/helpmecarry/listener_planb.py	/^    def __init__(self):$/;"	m	class:SpeechManager
+__init__	src/villa_task/helpmecarry/motion.py	/^    def __init__(self, omnibase, whole_body, fastmove, gripper, wrench):$/;"	m	class:MotionManager
+__init__	src/villa_task/helpmecarry/navi_service_client.py	/^	def __init__(self):$/;"	m	class:navisrvManager
+__init__	src/villa_task/helpmecarry/transforms.py	/^    def __init__(self, whole_body):$/;"	m	class:TransformManager
+__init__	src/villa_task/helpmecarry/world_model.py	/^    def __init__(self):$/;"	m	class:WorldModel
+__init__	src/villa_task/spr/commandanswerer.py	/^    def __init__(self):$/;"	m	class:AnswerBase
+__init__	src/villa_task/spr/crowdsurvey.py	/^    def __init__(self):$/;"	m	class:ScanCrowd
+__init__	src/villa_task/spr/headcontrol.py	/^    def __init__(self):$/;"	m	class:HeadControl
+__init__	src/villa_task/spr/motion.py	/^    def __init__(self, fastmove, whole_body, tts, answerhandler):$/;"	m	class:MotionManager
+__init__	src/villa_task/spr/personangle.py	/^    def __init__(self, fastmove):$/;"	m	class:LocatePerson
+__init__	src/villa_task/spr/questionanswerer.py	/^    def __init__(self):$/;"	m	class:AnswerBase
+__init__	src/villa_task/task3/crowdsurvey.py	/^    def __init__(self):$/;"	m	class:ScanCrowd
+__init__	src/villa_task/task3/headcontrol.py	/^    def __init__(self):$/;"	m	class:HeadControl
+__init__	src/villa_task/task3/personangle.py	/^    def __init__(self, fastmove):$/;"	m	class:LocatePerson
+__init__	src/villa_task/task3/questionanswerer.py	/^    def __init__(self):$/;"	m	class:AnswerBase
+__init__	src/villa_task/task5/collision_world_manager.py	/^    def __init__(self, collision_world):$/;"	m	class:CollisionWorldManager
+__init__	src/villa_task/task5/detection_3d.py	/^    def __init__(self):$/;"	m	class:Detection3DManager
+__init__	src/villa_task/task5/motion.py	/^    def __init__(self, omnibase, whole_body, fastmove, gripper, wrench):$/;"	m	class:MotionManager
+__init__	src/villa_task/task5/octomap.py	/^    def __init__(self):$/;"	m	class:OctomapManager
+__init__	src/villa_task/task5/perception.py	/^    def __init__(self):$/;"	m	class:PerceptionManager
+__init__	src/villa_task/task5/transforms.py	/^    def __init__(self, whole_body):$/;"	m	class:TransformManager
+__init__	src/villa_task/task5/world_model.py	/^    def __init__(self):$/;"	m	class:WorldModel
+__init__	src/villa_task/tts.py	/^    def __init__(self, timeout=3.0):$/;"	m	class:TextToSpeech
+__project_3d_point	src/villa_task/groceries/objectlabel.py	/^    def __project_3d_point(self, point):$/;"	m	class:ObjectLabeller	file:
+__robot_moved	src/villa_task/spr/motion.py	/^    def __robot_moved(self, _):$/;"	m	class:MotionManager	file:
+__should_keep_object	src/villa_task/groceries/perception.py	/^    def __should_keep_object(self, aa_box, oriented_box, table):$/;"	m	class:PerceptionManager	file:
+__talking_sentence	src/villa_task/tts.py	/^    def __talking_sentence(self, sentence):$/;"	m	class:TextToSpeech	file:
+__timer_cb	src/villa_task/groceries/tasktimer.py	/^    def __timer_cb(self, te):$/;"	m	class:TaskTimer	file:
+__transform_table_point	src/villa_task/groceries/objectlabel.py	/^    def __transform_table_point(self, x, y, z, transform):$/;"	m	class:ObjectLabeller	file:
+__update_ages	src/villa_task/spr/crowdsurvey.py	/^    def __update_ages(self, a):$/;"	m	class:ScanCrowd	file:
+__update_genders	src/villa_task/spr/crowdsurvey.py	/^    def __update_genders(self, g):$/;"	m	class:ScanCrowd	file:
+__update_genders	src/villa_task/task3/crowdsurvey.py	/^    def __update_genders(self, g):$/;"	m	class:ScanCrowd	file:
+__update_speech	src/villa_task/gpsr_navigation/listener_gpsr_nav	/^    def __update_speech(self, s):$/;"	m	class:SpeechManager	file:
+__update_speech	src/villa_task/helpmecarry/listener.py	/^    def __update_speech(self, s):$/;"	m	class:SpeechManager	file:
+__update_speech	src/villa_task/helpmecarry/listener_planb	/^    def __update_speech(self, s):$/;"	m	class:SpeechManager	file:
+__update_speech	src/villa_task/helpmecarry/listener_planb.py	/^    def __update_speech(self, s):$/;"	m	class:SpeechManager	file:
+__update_speech	src/villa_task/spr/commandanswerer.py	/^    def __update_speech(self, s):$/;"	m	class:AnswerBase	file:
+__update_speech	src/villa_task/spr/questionanswerer.py	/^    def __update_speech(self, s):$/;"	m	class:AnswerBase	file:
+__update_speech	src/villa_task/task3/questionanswerer.py	/^    def __update_speech(self, s):$/;"	m	class:AnswerBase	file:
+__within_bounding_box	src/villa_task/groceries/objectlabel.py	/^    def __within_bounding_box(self, test_point, center, size):$/;"	m	class:ObjectLabeller	file:
+__yolo_detections_callback	src/villa_task/groceries/objectlabel.py	/^    def __yolo_detections_callback(self, data):$/;"	m	class:ObjectLabeller	file:
+__yolo_image_callback	src/villa_task/groceries/objectlabel.py	/^    def __yolo_image_callback(self, data):$/;"	m	class:ObjectLabeller	file:
+_add_cupboard_collision	src/villa_task/groceries/world_model.py	/^    def _add_cupboard_collision(self, shelves):$/;"	m	class:WorldModel
+_add_table_collision	src/villa_task/groceries/world_model.py	/^    def _add_table_collision(self, table):$/;"	m	class:WorldModel
+_add_table_object_collision	src/villa_task/groceries/world_model.py	/^    def _add_table_object_collision(self, object, objectname):$/;"	m	class:WorldModel
+_octomap_cb	src/villa_task/groceries/octomap.py	/^    def _octomap_cb(self, data):$/;"	m	class:OctomapManager
+_octomap_cb	src/villa_task/task5/octomap.py	/^    def _octomap_cb(self, data):$/;"	m	class:OctomapManager
+aborted	scripts/start_end	/^def aborted(status):$/;"	f
+act	scripts/gpsr.py	/^def act(robot):$/;"	f
+act	scripts/spr	/^def act():$/;"	f
+act	scripts/task3.py	/^def act(robot):$/;"	f
+act	scripts/task4.py	/^def act(robot):$/;"	f
+activation_callback	src/villa_task/helpmecarry/following_srv_client.py	/^    def activation_callback(self,msg):$/;"	m	class:HumanFollowingManager
+activation_callback	src/villa_task/helpmecarry/handover_planb	/^    def activation_callback(self,msg):$/;"	m	class:HandoverManager
+activation_callback	src/villa_task/helpmecarry/navi_service_client.py	/^	def activation_callback(self,msg):$/;"	m	class:navisrvManager
+add_collision_shelf	src/villa_task/helpmecarry/example_integration.py	/^def add_collision_shelf(collision_objects, shelves, selected_shelf, shelf_width, shelf_length):$/;"	f
+add_collision_table	src/villa_task/helpmecarry/example_integration.py	/^def add_collision_table(collision_objects, table, table_xdim, table_ydim):$/;"	f
+add_collision_using_ocotomap	src/villa_task/helpmecarry/example_integration.py	/^def add_collision_using_ocotomap(collision_objects, min_height, max_height):$/;"	f
+add_collision_using_ocotomap	src/villa_task/task5/collision_world_manager.py	/^    def add_collision_using_ocotomap(self, collision_objects, min_height, max_height):$/;"	m	class:CollisionWorldManager
+add_cupboard	src/villa_task/groceries/collision_world_manager.py	/^    def add_cupboard(self, shelves):$/;"	m	class:CollisionWorldManager
+add_cupboard	src/villa_task/task5/collision_world_manager.py	/^    def add_cupboard(self, shelves):$/;"	m	class:CollisionWorldManager
+add_relation	src/villa_task/groceries/transforms.py	/^    def add_relation(self, relation):$/;"	m	class:TransformManager
+add_relation	src/villa_task/helpmecarry/transforms.py	/^    def add_relation(self, relation):$/;"	m	class:TransformManager
+add_relation	src/villa_task/task5/transforms.py	/^    def add_relation(self, relation):$/;"	m	class:TransformManager
+add_relations	src/villa_task/groceries/transforms.py	/^    def add_relations(self, relations):$/;"	m	class:TransformManager
+add_relations	src/villa_task/helpmecarry/transforms.py	/^    def add_relations(self, relations):$/;"	m	class:TransformManager
+add_relations	src/villa_task/task5/transforms.py	/^    def add_relations(self, relations):$/;"	m	class:TransformManager
+add_selected_shelf	src/villa_task/groceries/collision_world_manager.py	/^    def add_selected_shelf(self,  selected_shelf, shelf_width, shelf_length):$/;"	m	class:CollisionWorldManager
+add_selected_shelf	src/villa_task/task5/collision_world_manager.py	/^    def add_selected_shelf(self,  selected_shelf, shelf_width, shelf_length):$/;"	m	class:CollisionWorldManager
+add_shelves	src/villa_task/groceries/world_model.py	/^    def add_shelves(self, shelves, shelf_relations):$/;"	m	class:WorldModel
+add_shelves	src/villa_task/task5/world_model.py	/^    def add_shelves(self, shelves):$/;"	m	class:WorldModel
+add_table	src/villa_task/groceries/collision_world_manager.py	/^    def add_table(self, table):$/;"	m	class:CollisionWorldManager
+add_table	src/villa_task/groceries/world_model.py	/^    def add_table(self, table, relation):$/;"	m	class:WorldModel
+add_table	src/villa_task/task5/collision_world_manager.py	/^    def add_table(self, table):$/;"	m	class:CollisionWorldManager
+add_table	src/villa_task/task5/world_model.py	/^    def add_table(self, table):$/;"	m	class:WorldModel
+add_table_object	src/villa_task/groceries/collision_world_manager.py	/^    def add_table_object(self, object, objectname):$/;"	m	class:CollisionWorldManager
+add_table_object	src/villa_task/task5/collision_world_manager.py	/^    def add_table_object(self, object, objectname):$/;"	m	class:CollisionWorldManager
+add_table_objects	src/villa_task/groceries/world_model.py	/^    def add_table_objects(self, objects):$/;"	m	class:WorldModel
+add_table_objects	src/villa_task/task5/world_model.py	/^    def add_table_objects(self, objects):$/;"	m	class:WorldModel
+ages	scripts/task3.py	/^ages = []$/;"	v
+annotate_image	src/villa_task/groceries/objectlabel.py	/^    def annotate_image(self):$/;"	m	class:ObjectLabeller
+annotated_shelf	scripts/groceries	/^    annotated_shelf = objectlabeller.annotate_image()$/;"	v
+answer	scripts/task3.py	/^def answer(speech):$/;"	f
+answer	src/villa_task/spr/commandanswerer.py	/^    def answer(self, speech):$/;"	m	class:AnswerBase
+answer	src/villa_task/spr/questionanswerer.py	/^    def answer(self, speech):$/;"	m	class:AnswerBase
+answer	src/villa_task/task3/questionanswerer.py	/^    def answer(self, speech):$/;"	m	class:AnswerBase
+answerhandler	scripts/task4.py	/^answerhandler = None$/;"	v
+approach_cupboard	src/villa_task/groceries/motion.py	/^    def approach_cupboard(self):$/;"	m	class:MotionManager
+approach_table	src/villa_task/groceries/motion.py	/^    def approach_table(self):$/;"	m	class:MotionManager
+approach_table_for_perception	src/villa_task/groceries/motion.py	/^    def approach_table_for_perception(self, table, transform_manager):$/;"	m	class:MotionManager
+begin_move	scripts/task3.py	/^def begin_move(noise_start, motionhandler):$/;"	f
+begin_move	scripts/task4.py	/^def begin_move(noise_start, motionhandler):$/;"	f
+bool_pointcloud_received	src/villa_task/helpmecarry/example_integration.py	/^bool_pointcloud_received = False$/;"	v
+bool_ready_to_process_octomap	src/villa_task/helpmecarry/example_integration.py	/^bool_ready_to_process_octomap = False$/;"	v
+broadcast_links	src/villa_task/groceries/transforms.py	/^    def broadcast_links(self):$/;"	m	class:TransformManager
+broadcast_links	src/villa_task/helpmecarry/transforms.py	/^    def broadcast_links(self):$/;"	m	class:TransformManager
+broadcast_links	src/villa_task/task5/transforms.py	/^    def broadcast_links(self):$/;"	m	class:TransformManager
+capture_operator_name	src/villa_task/gpsr_navigation/listener_gpsr_nav	/^    def capture_operator_name(self):$/;"	m	class:SpeechManager
+capture_operator_name	src/villa_task/helpmecarry/listener.py	/^    def capture_operator_name(self):$/;"	m	class:SpeechManager
+capture_operator_name	src/villa_task/helpmecarry/listener_planb	/^    def capture_operator_name(self):$/;"	m	class:SpeechManager
+capture_operator_name	src/villa_task/helpmecarry/listener_planb.py	/^    def capture_operator_name(self):$/;"	m	class:SpeechManager
+capture_operator_photo	src/villa_task/helpmecarry/RecognitionManager.py	/^    def capture_operator_photo(self):$/;"	m	class:RecognitionManager
+clear_table_objects	src/villa_task/groceries/world_model.py	/^    def clear_table_objects(self):$/;"	m	class:WorldModel
+close_gripper	src/villa_task/helpmecarry/handover.py	/^    def close_gripper(self, to_width=0.2):$/;"	m	class:HandoverManager
+close_gripper	src/villa_task/helpmecarry/handover_planb	/^    def close_gripper(self, to_width=0.2):$/;"	m	class:HandoverManager
+cmd_int_callback	src/villa_task/helpmecarry/following_srv_client.py	/^    def cmd_int_callback(self,msg):$/;"	m	class:HumanFollowingManager
+collision_manager	scripts/task5.py	/^            collision_manager = CollisionWorldManager(collision_world)$/;"	v
+collision_mapping	src/villa_task/groceries/perception.py	/^    def collision_mapping(self, shelf):$/;"	m	class:PerceptionManager
+collision_world	scripts/groceries	/^        collision_world = robot.try_get('global_collision_world')$/;"	v
+collision_world	scripts/task5.py	/^        collision_world = robot.try_get('global_collision_world')$/;"	v
+collision_world	src/villa_task/helpmecarry/example_integration.py	/^collision_world = robot.try_get('global_collision_world')$/;"	v
+construct_rviz_marker	src/villa_task/groceries/visualization.py	/^def construct_rviz_marker(label, obj_id, x, y, z):$/;"	f
+construct_rviz_marker	src/villa_task/helpmecarry/visualization.py	/^def construct_rviz_marker( label, obj_id, x, y, z):$/;"	f
+count_genders	src/villa_task/spr/crowdsurvey.py	/^    def count_genders(self, speech):$/;"	m	class:ScanCrowd
+count_genders	src/villa_task/task3/crowdsurvey.py	/^    def count_genders(self, speech):$/;"	m	class:ScanCrowd
+crop_face	src/villa_task/helpmecarry/face_recog_manager.py	/^    def crop_face(self, image_data):$/;"	m	class:FaceRecogManager
+decide_cupboard_approach_point	src/villa_task/groceries/motion.py	/^    def decide_cupboard_approach_point(self, shelf, shelf_name):$/;"	m	class:MotionManager
+decide_placement	src/villa_task/groceries/perception.py	/^    def decide_placement(self, shelf, object_in_hand):$/;"	m	class:PerceptionManager
+decide_placement	src/villa_task/task5/perception.py	/^    def decide_placement(self, shelf, shelf_objects, object_in_hand, inverse_transform):$/;"	m	class:PerceptionManager
+decide_shelf_approach_point	src/villa_task/helpmecarry/motion.py	/^    def decide_shelf_approach_point(self, shelf, shelf_name, transform_manager):$/;"	m	class:MotionManager
+decide_table_approach_point	src/villa_task/groceries/motion.py	/^    def decide_table_approach_point(self, table):$/;"	m	class:MotionManager
+decide_table_approach_point	src/villa_task/helpmecarry/motion.py	/^    def decide_table_approach_point(self, table, transform_manager):$/;"	m	class:MotionManager
+detect_cupboard	src/villa_task/groceries/detection_3d.py	/^    def detect_cupboard(self, octomap_cloud, world_model):$/;"	m	class:Detection3DManager
+detect_shelf	src/villa_task/task5/detection_3d.py	/^    def detect_shelf(self, octomap_cloud):$/;"	m	class:Detection3DManager
+detect_start_signal	scripts/gpsr.py	/^def detect_start_signal(wrench):$/;"	f
+detect_start_signal	src/villa_task/groceries/motion.py	/^    def detect_start_signal(self):$/;"	m	class:MotionManager
+detect_start_signal	src/villa_task/helpmecarry/motion.py	/^    def detect_start_signal(self):$/;"	m	class:MotionManager
+detect_start_signal	src/villa_task/task5/motion.py	/^    def detect_start_signal(self):$/;"	m	class:MotionManager
+detect_table	src/villa_task/groceries/detection_3d.py	/^    def detect_table(self, octomap_cloud, world_model):$/;"	m	class:Detection3DManager
+detect_table	src/villa_task/task5/detection_3d.py	/^    def detect_table(self, octomap_cloud):$/;"	m	class:Detection3DManager
+detections_callback	src/villa_task/spr/personangle.py	/^    def detections_callback(self,data):$/;"	m	class:LocatePerson
+detections_callback	src/villa_task/task3/personangle.py	/^    def detections_callback(self,data):$/;"	m	class:LocatePerson
+disable_collision_for	src/villa_task/groceries/world_model.py	/^    def disable_collision_for(self, object_name):$/;"	m	class:WorldModel
+end	scripts/start_end	/^    end = rospy.get_param('\/start_end_node\/end') $/;"	v	class:StartEnd
+end_name	scripts/start_end	/^    end_name = rospy.get_param('\/start_end_node\/end_name') $/;"	v	class:StartEnd
+execute_handover	src/villa_task/helpmecarry/handover.py	/^    def execute_handover(self):$/;"	m	class:HandoverManager
+execute_handover	src/villa_task/helpmecarry/handover_planb	/^    def execute_handover(self):$/;"	m	class:HandoverManager
+face_detect_manger	scripts/helpmecarry	/^face_detect_manger= None $/;"	v
+fm	scripts/groceries	/^        fm = FastMove(omni_base)$/;"	v
+fm	scripts/task5.py	/^fm = FastMove(omni_base)$/;"	v
+fm	src/villa_task/helpmecarry/example_integration.py	/^fm = FastMove(omni_base)$/;"	v
+following_manager	src/villa_task/helpmecarry/following_srv_client.py	/^    following_manager = HumanFollowingManager()$/;"	v
+genders	scripts/task3.py	/^genders = []$/;"	v
+getGoalMsg	scripts/start_end	/^    def getGoalMsg(self, loc):$/;"	m	class:StartEnd
+getState	scripts/start_end	/^    def getState(self):$/;"	m	class:StartEnd
+get_age	scripts/task3.py	/^def get_age():$/;"	f
+get_ages	src/villa_task/spr/crowdsurvey.py	/^    def get_ages(self):$/;"	m	class:ScanCrowd
+get_arguments	src/villa_task/spr/questionanswerer.py	/^    def get_arguments(self):$/;"	m	class:AnswerBase
+get_arguments	src/villa_task/task3/questionanswerer.py	/^    def get_arguments(self):$/;"	m	class:AnswerBase
+get_gender	scripts/task3.py	/^def get_gender():$/;"	f
+get_gender	src/villa_task/task3/crowdsurvey.py	/^    def get_gender(self):$/;"	m	class:ScanCrowd
+get_genders	src/villa_task/spr/crowdsurvey.py	/^    def get_genders(self):$/;"	m	class:ScanCrowd
+get_listen_time	src/villa_task/spr/commandanswerer.py	/^    def get_listen_time(self):$/;"	m	class:AnswerBase
+get_listen_time	src/villa_task/spr/questionanswerer.py	/^    def get_listen_time(self):$/;"	m	class:AnswerBase
+get_listen_time	src/villa_task/task3/questionanswerer.py	/^    def get_listen_time(self):$/;"	m	class:AnswerBase
+get_octomap_cloud	src/villa_task/groceries/octomap.py	/^    def get_octomap_cloud(self):$/;"	m	class:OctomapManager
+get_octomap_cloud	src/villa_task/task5/octomap.py	/^    def get_octomap_cloud(self):$/;"	m	class:OctomapManager
+get_question_count	src/villa_task/spr/commandanswerer.py	/^    def get_question_count(self):$/;"	m	class:AnswerBase
+get_question_count	src/villa_task/spr/questionanswerer.py	/^    def get_question_count(self):$/;"	m	class:AnswerBase
+get_question_count	src/villa_task/task3/questionanswerer.py	/^    def get_question_count(self):$/;"	m	class:AnswerBase
+get_sorted_target_shelves_for_object	src/villa_task/groceries/world_model.py	/^    def get_sorted_target_shelves_for_object(self, object_name):$/;"	m	class:WorldModel
+get_transform	src/villa_task/groceries/transforms.py	/^    def get_transform(self, target, source):$/;"	m	class:TransformManager
+get_transform	src/villa_task/helpmecarry/example_integration.py	/^def get_transform(target, source):$/;"	f
+get_transform	src/villa_task/helpmecarry/transforms.py	/^    def get_transform(self, target, source):$/;"	m	class:TransformManager
+get_transform	src/villa_task/task5/transforms.py	/^    def get_transform(self, target, source):$/;"	m	class:TransformManager
+goto	scripts/start_end	/^    def goto(self, loc):$/;"	m	class:StartEnd
+gotoEnd	scripts/start_end	/^    def gotoEnd(self):$/;"	m	class:StartEnd
+gotoStart	scripts/start_end	/^    def gotoStart(self):$/;"	m	class:StartEnd
+gpsr_navicallback	src/villa_task/gpsr_navigation/gpsr_navi_client.py	/^	def gpsr_navicallback(self,msg):$/;"	m	class:gpsrnaviManager
+gpsrnaviManager	src/villa_task/gpsr_navigation/gpsr_navi_client.py	/^class gpsrnaviManager(object):$/;"	c
+gpsrnavi_manager	src/villa_task/gpsr_navigation/gpsr_navi_client.py	/^	gpsrnavi_manager = gpsrnaviManager()$/;"	v
+grasp_any_object	src/villa_task/groceries/pick_and_place.py	/^def grasp_any_object(motion_manager, world_model, max_num_tries=2):$/;"	f
+grasp_any_object	src/villa_task/task5/pick_and_place.py	/^def grasp_any_object(transform_manager, motion_manager, collision_manager, world_model, max_num_tries=2):$/;"	f
+grasp_failed	src/villa_task/helpmecarry/motion.py	/^    def grasp_failed(self):$/;"	m	class:MotionManager
+grasp_failed	src/villa_task/task5/motion.py	/^    def grasp_failed(self):$/;"	m	class:MotionManager
+grasp_object	src/villa_task/groceries/pick_and_place.py	/^def grasp_object(selected_object_name, world_model, motion_manager, g_planner, in_base_frame=False):$/;"	f
+grasp_object	src/villa_task/task5/pick_and_place.py	/^def grasp_object(selected_object_name, world_model, transform_manager, motion_manager, collision_manager, g_planner, aligned_axis, approach ):$/;"	f
+gripper	scripts/groceries	/^        gripper = robot.try_get('gripper')$/;"	v
+gripper	scripts/helpmecarry	/^        gripper = robot.try_get('gripper')$/;"	v
+gripper	scripts/task5.py	/^        gripper = robot.try_get('gripper')$/;"	v
+gripper	src/villa_task/helpmecarry/example_integration.py	/^gripper = robot.try_get('gripper')$/;"	v
+gripper	src/villa_task/helpmecarry/handover_planb	/^        gripper = robot.try_get('gripper')$/;"	v
+handover_manager	scripts/helpmecarry	/^            handover_manager = HandoverManager(omni_base,whole_body,gripper)$/;"	v
+handover_manager	scripts/helpmecarry	/^handover_manager = None$/;"	v
+handover_manager	src/villa_task/helpmecarry/handover_planb	/^    handover_manager = HandoverManager(whole_body,gripper)$/;"	v
+head_scan_cupboard	src/villa_task/groceries/motion.py	/^    def head_scan_cupboard(self):$/;"	m	class:MotionManager
+head_scan_cupboard	src/villa_task/helpmecarry/motion.py	/^    def head_scan_cupboard(self):$/;"	m	class:MotionManager
+head_scan_shelf	src/villa_task/helpmecarry/example_integration.py	/^def head_scan_shelf(table_transform):$/;"	f
+head_scan_table	src/villa_task/groceries/motion.py	/^    def head_scan_table(self):$/;"	m	class:MotionManager
+head_scan_table	src/villa_task/helpmecarry/example_integration.py	/^def head_scan_table(): # scan table$/;"	f
+head_scan_table	src/villa_task/helpmecarry/motion.py	/^    def head_scan_table(self):$/;"	m	class:MotionManager
+head_scan_table	src/villa_task/task5/motion.py	/^    def head_scan_table(self):$/;"	m	class:MotionManager
+head_to_neutral	src/villa_task/groceries/motion.py	/^    def head_to_neutral(self):$/;"	m	class:MotionManager
+head_to_neutral	src/villa_task/helpmecarry/motion.py	/^    def head_to_neutral(self):$/;"	m	class:MotionManager
+human_following_manager	scripts/helpmecarry	/^            human_following_manager = HumanFollowingManager()$/;"	v
+human_following_manager	scripts/helpmecarry	/^human_following_manager = None$/;"	v
+image_callback	src/villa_task/helpmecarry/face_recog_manager.py	/^    def image_callback(self, msg):$/;"	m	class:FaceRecogManager
+inspect_cb	scripts/inspection	/^def inspect_cb(req):$/;"	f
+inspection_task_server	scripts/inspection	/^def inspection_task_server():$/;"	f
+isDone	scripts/start_end	/^def isDone(status):$/;"	f
+is_holding_something	src/villa_task/groceries/motion.py	/^    def is_holding_something(self):$/;"	m	class:MotionManager
+is_unanswered	src/villa_task/spr/commandanswerer.py	/^    def is_unanswered(self):$/;"	m	class:AnswerBase
+is_unanswered	src/villa_task/spr/questionanswerer.py	/^    def is_unanswered(self):$/;"	m	class:AnswerBase
+is_unanswered	src/villa_task/task3/questionanswerer.py	/^    def is_unanswered(self):$/;"	m	class:AnswerBase
+key_callback	src/villa_task/helpmecarry/face_recog_manager.py	/^    def key_callback(self, msg):  # "p"$/;"	m	class:FaceRecogManager
+label_objects	src/villa_task/groceries/objectlabel.py	/^    def label_objects(self, transform_manager, objects):$/;"	m	class:ObjectLabeller
+landmark_detector	scripts/groceries	/^            landmark_detector = Detection3DManager()$/;"	v
+landmark_detector	scripts/helpmecarry	/^landmark_detector = None$/;"	v
+landmark_detector	scripts/task5.py	/^            landmark_detector = Detection3DManager()$/;"	v
+listen	scripts/task3.py	/^listen = None$/;"	v
+listen_for_activation	src/villa_task/gpsr_navigation/listener_gpsr_nav	/^    def listen_for_activation(self):$/;"	m	class:SpeechManager
+listen_for_activation	src/villa_task/helpmecarry/listener.py	/^    def listen_for_activation(self):$/;"	m	class:SpeechManager
+listen_for_activation	src/villa_task/helpmecarry/listener_planb	/^    def listen_for_activation(self):$/;"	m	class:SpeechManager
+listen_for_activation	src/villa_task/helpmecarry/listener_planb.py	/^    def listen_for_activation(self):$/;"	m	class:SpeechManager
+listen_for_stop	src/villa_task/gpsr_navigation/listener_gpsr_nav	/^    def listen_for_stop(self):$/;"	m	class:SpeechManager
+listen_for_stop	src/villa_task/helpmecarry/listener.py	/^    def listen_for_stop(self):$/;"	m	class:SpeechManager
+listen_for_stop	src/villa_task/helpmecarry/listener_planb	/^    def listen_for_stop(self):$/;"	m	class:SpeechManager
+listen_for_stop	src/villa_task/helpmecarry/listener_planb.py	/^    def listen_for_stop(self):$/;"	m	class:SpeechManager
+listener	src/villa_task/gpsr_navigation/gpsr_navi_client.py	/^	def listener(self):$/;"	m	class:gpsrnaviManager
+listener	src/villa_task/gpsr_navigation/listener_gpsr_nav	/^    def listener(self,wait=0.0):$/;"	m	class:SpeechManager
+listener	src/villa_task/helpmecarry/face_recog_manager.py	/^    def listener(self, wait=0.0):$/;"	m	class:FaceRecogManager
+listener	src/villa_task/helpmecarry/following_srv_client.py	/^    def listener(self):$/;"	m	class:HumanFollowingManager
+listener	src/villa_task/helpmecarry/handover_planb	/^    def listener(self):$/;"	m	class:HandoverManager
+listener	src/villa_task/helpmecarry/listener_planb	/^    def listener(self,wait=0.0):$/;"	m	class:SpeechManager
+listener	src/villa_task/helpmecarry/listener_planb.py	/^    def listener(self,wait=0.0):$/;"	m	class:SpeechManager
+listener	src/villa_task/helpmecarry/navi_service_client.py	/^	def listener(self):$/;"	m	class:navisrvManager
+look_at	src/villa_task/groceries/motion.py	/^    def look_at(self, transform, object_pose, from_above=False):$/;"	m	class:MotionManager
+look_at	src/villa_task/helpmecarry/motion.py	/^    def look_at(self, transform, object_height=None):$/;"	m	class:MotionManager
+look_at	src/villa_task/task5/motion.py	/^    def look_at(self, transform, object_height=None):$/;"	m	class:MotionManager
+look_backwards	src/villa_task/task5/motion.py	/^    def look_backwards(self):$/;"	m	class:MotionManager
+look_future	scripts/groceries	/^    look_future = motion_manager.look_at(shelf_to_base, world_model.shelves[0].bbox.pose)$/;"	v
+look_future	scripts/groceries	/^    look_future = motion_manager.look_at(table_to_base, world_model.table.pose, True)$/;"	v
+main	src/villa_task/spr/personangle.py	/^    def main(self):$/;"	m	class:LocatePerson
+main	src/villa_task/task3/personangle.py	/^    def main(self):$/;"	m	class:LocatePerson
+motion_manager	scripts/groceries	/^            motion_manager = MotionManager(omni_base, whole_body, fm, gripper, wrench)$/;"	v
+motion_manager	scripts/task5.py	/^            motion_manager = MotionManager(omni_base, whole_body, fm, gripper, wrench)$/;"	v
+move_to_neutral_without_fail	src/villa_task/groceries/motion.py	/^    def move_to_neutral_without_fail(self):$/;"	m	class:MotionManager
+move_to_shelf	src/villa_task/helpmecarry/motion.py	/^    def move_to_shelf(self, shelf, shelf_name):$/;"	m	class:MotionManager
+move_to_shelf	src/villa_task/task5/motion.py	/^    def move_to_shelf(self, shelf, shelf_name, transform_manager):$/;"	m	class:MotionManager
+move_to_table	src/villa_task/helpmecarry/motion.py	/^    def move_to_table(self):$/;"	m	class:MotionManager
+move_to_table	src/villa_task/task5/motion.py	/^    def move_to_table(self, table, transform_manager):$/;"	m	class:MotionManager
+navisrvManager	src/villa_task/helpmecarry/navi_service_client.py	/^class navisrvManager(object):$/;"	c
+navisrv_manager	src/villa_task/helpmecarry/navi_service_client.py	/^	navisrv_manager = navisrvManager()$/;"	v
+normalize_shelf	src/villa_task/groceries/world_model.py	/^    def normalize_shelf(self, shelf, shelf_name, relation):$/;"	m	class:WorldModel
+normalize_table	src/villa_task/groceries/world_model.py	/^    def normalize_table(self, table, relation):$/;"	m	class:WorldModel
+null_cb	scripts/null_task	/^def null_cb(req):$/;"	f
+null_task_server	scripts/null_task	/^def null_task_server():$/;"	f
+object_labels_pub	src/villa_task/groceries/visualization.py	/^object_labels_pub = rospy.Publisher("visualization\/object_labels", MarkerArray, queue_size=10, latch=True)$/;"	v
+object_labels_pub	src/villa_task/helpmecarry/visualization.py	/^object_labels_pub = rospy.Publisher("objectlabels", MarkerArray, queue_size=10)$/;"	v
+objectlabeller	scripts/groceries	/^            objectlabeller = ObjectLabeller(rospy.get_param("~categories_file"), camera='xtion')$/;"	v
+observe_shelves	src/villa_task/groceries/motion.py	/^    def observe_shelves(self, shelves, objectlabeller, transform_manager):$/;"	m	class:MotionManager
+occupied_cells	src/villa_task/helpmecarry/example_integration.py	/^occupied_cells = None$/;"	v
+octomap_cb	src/villa_task/helpmecarry/example_integration.py	/^def octomap_cb(data):$/;"	f
+octomap_cloud	src/villa_task/helpmecarry/example_integration.py	/^octomap_cloud = None$/;"	v
+octomap_manager	scripts/groceries	/^            octomap_manager = OctomapManager()$/;"	v
+octomap_manager	scripts/task5.py	/^            octomap_manager = OctomapManager()$/;"	v
+omni_base	scripts/groceries	/^        omni_base = robot.try_get('omni_base')$/;"	v
+omni_base	scripts/task5.py	/^        omni_base = robot.try_get('omni_base')$/;"	v
+omni_base	src/villa_task/helpmecarry/example_integration.py	/^omni_base = robot.try_get('omni_base')$/;"	v
+openGripper	src/villa_task/helpmecarry/example_integration.py	/^def openGripper(obj_width):$/;"	f
+open_gripper	src/villa_task/groceries/motion.py	/^    def open_gripper(self, to_width=1.2):$/;"	m	class:MotionManager
+open_gripper	src/villa_task/helpmecarry/handover.py	/^    def open_gripper(self, to_width=1.2):$/;"	m	class:HandoverManager
+open_gripper	src/villa_task/helpmecarry/handover_planb	/^    def open_gripper(self, to_width=1.2):$/;"	m	class:HandoverManager
+open_gripper	src/villa_task/helpmecarry/motion.py	/^    def open_gripper(self, obj_width=1.2):$/;"	m	class:MotionManager
+open_gripper	src/villa_task/task5/motion.py	/^    def open_gripper(self, obj_width=1.2):$/;"	m	class:MotionManager
+package_dir	setup.py	/^    package_dir={'': 'src'},$/;"	v
+packages	setup.py	/^    packages=['villa_task'],$/;"	v
+perceive_table	scripts/task5.py	/^def perceive_table(transform_manager, world_model, perception_manager, motion_manager):$/;"	f
+perceive_table_objects	scripts/groceries	/^def perceive_table_objects(world_model, perception_manager, objectlabeller):$/;"	f
+perceive_tabletop	src/villa_task/groceries/perception.py	/^    def perceive_tabletop(self, table):$/;"	m	class:PerceptionManager
+perception_manager	scripts/groceries	/^            perception_manager = PerceptionManager()$/;"	v
+perception_manager	scripts/task5.py	/^            perception_manager = PerceptionManager()$/;"	v
+picked_up_object	src/villa_task/groceries/world_model.py	/^    def picked_up_object(self, object_name):$/;"	m	class:WorldModel
+picked_up_object	src/villa_task/task5/world_model.py	/^    def picked_up_object(self, object_name):$/;"	m	class:WorldModel
+place_anywhere	src/villa_task/groceries/pick_and_place.py	/^def place_anywhere(world_model, motion_manager, perception_manager):$/;"	f
+place_anywhere	src/villa_task/task5/pick_and_place.py	/^def place_anywhere(world_model, transform_manager, motion_manager, collision_manager, perception_manager):$/;"	f
+place_anywhere_on_shelf	src/villa_task/task5/pick_and_place.py	/^def place_anywhere_on_shelf(world_model, transform_manager, motion_manager, collision_manager, shelf, shelf_name, placement):$/;"	f
+place_object_on_shelf	src/villa_task/groceries/pick_and_place.py	/^def place_object_on_shelf(world_model, motion_manager, shelf, shelf_name, placement):$/;"	f
+placed	scripts/task5.py	/^        placed = place_anywhere(world_model, transform_manager, motion_manager, collision_manager, perception_manager)$/;"	v
+placed	scripts/task5.py	/^    placed = place_anywhere(world_model, transform_manager, motion_manager, collision_manager, perception_manager)$/;"	v
+placed_current_object	src/villa_task/groceries/world_model.py	/^    def placed_current_object(self, shelf_index):$/;"	m	class:WorldModel
+pose_publisher	src/villa_task/groceries/visualization.py	/^pose_publisher = rospy.Publisher("visualization\/pose", PoseStamped, queue_size=10, latch=True)$/;"	v
+pose_publisher	src/villa_task/helpmecarry/visualization.py	/^pose_publisher = rospy.Publisher("pose_visulizer", PoseStamped, queue_size=10)$/;"	v
+preempted	scripts/start_end	/^def preempted(status):$/;"	f
+project_shelves	src/villa_task/groceries/objectlabel.py	/^    def project_shelves(self, shelves, transform_manager):$/;"	m	class:ObjectLabeller
+projection	src/villa_task/spr/personangle.py	/^projection = np.array([233.0644925835, 0.0, 320.0, 0.0, 0.0, 233.0644925835, 240.0, 0.0, 0.0, 0.0, 1.0, 0.0]).reshape((3, 4))$/;"	v
+projection	src/villa_task/task3/personangle.py	/^projection = np.matrix([[537.4419394922311,0.0,320.7446731239431,0.0],[0.0,537.3267489282307,236.6190392583983,0.0],[0.0,0.0,1.0,0.0]])$/;"	v
+projection_inv	src/villa_task/spr/personangle.py	/^projection_inv = np.linalg.pinv(projection)$/;"	v
+projection_inv	src/villa_task/task3/personangle.py	/^projection_inv = np.linalg.pinv(projection)$/;"	v
+publish_goal_pose	src/villa_task/groceries/visualization.py	/^def publish_goal_pose(pose, frame_id):$/;"	f
+question_count	scripts/task3.py	/^question_count = 0$/;"	v
+recognition_manager	scripts/helpmecarry	/^            recognition_manager = RecognitionManager()$/;"	v
+recognition_manager	scripts/helpmecarry	/^recognition_manager = None$/;"	v
+remove	src/villa_task/groceries/collision_world_manager.py	/^    def remove(self, to_remove):$/;"	m	class:CollisionWorldManager
+remove	src/villa_task/task5/collision_world_manager.py	/^    def remove(self, to_remove):$/;"	m	class:CollisionWorldManager
+remove_relation	src/villa_task/groceries/transforms.py	/^    def remove_relation(self, relation):$/;"	m	class:TransformManager
+remove_relation	src/villa_task/helpmecarry/transforms.py	/^    def remove_relation(self, relation):$/;"	m	class:TransformManager
+remove_relation_by_object_name	src/villa_task/groceries/transforms.py	/^    def remove_relation_by_object_name(self, object_name):$/;"	m	class:TransformManager
+remove_relation_by_object_name	src/villa_task/helpmecarry/transforms.py	/^    def remove_relation_by_object_name(self, object_name):$/;"	m	class:TransformManager
+report_final_detections	src/villa_task/groceries/reporting.py	/^report_final_detections = rospy.ServiceProxy("report_final_cupboard", ReportFinalCupboard)$/;"	v
+report_generation	scripts/groceries	/^            report_generation = {$/;"	v
+report_initial_detections	src/villa_task/groceries/reporting.py	/^report_initial_detections = rospy.ServiceProxy("report_cupboard", ReportCupboard)$/;"	v
+robot	scripts/groceries	/^        robot = Robot()$/;"	v
+robot	scripts/helpmecarry	/^        robot = Robot()$/;"	v
+robot	scripts/task5.py	/^        robot = Robot()$/;"	v
+robot	src/villa_task/helpmecarry/example_integration.py	/^robot = Robot()$/;"	v
+robot	src/villa_task/helpmecarry/handover_planb	/^        robot = Robot()$/;"	v
+robot_moved	scripts/task3.py	/^def robot_moved(fastmove, noise_stop, whole_body, speech, motionhandler):$/;"	f
+robot_moved	scripts/task4.py	/^def robot_moved(fastmove, noise_stop, whole_body, speech, motionhandler):$/;"	f
+robot_say	src/villa_task/helpmecarry/example_integration.py	/^def robot_say(string):$/;"	f
+robot_say	src/villa_task/task5/speak.py	/^def robot_say(string):$/;"	f
+rospack	scripts/start_end	/^rospack = rospkg.RosPack()$/;"	v
+run	scripts/start_end	/^    def run(self):$/;"	m	class:StartEnd
+runTask	scripts/start_end	/^    def runTask(self):$/;"	m	class:StartEnd
+safe_groovy_future	src/villa_task/groceries/motion.py	/^        def safe_groovy_future(timeout):$/;"	f	function:MotionManager.look_at
+save_information	src/villa_task/spr/crowdsurvey.py	/^    def save_information(self):$/;"	m	class:ScanCrowd
+say	src/villa_task/tts.py	/^    def say(self, sentence, wait=False):$/;"	m	class:TextToSpeech
+scanning_future	scripts/groceries	/^    scanning_future = motion_manager.head_scan_table()$/;"	v
+select_shelf	src/villa_task/task5/perception.py	/^    def select_shelf(self, world_model):$/;"	m	class:PerceptionManager
+set_axis	src/villa_task/groceries/world_model.py	/^    def set_axis(self, axis):$/;"	m	class:WorldModel
+set_axis	src/villa_task/task5/world_model.py	/^    def set_axis(self, axis):$/;"	m	class:WorldModel
+set_speech_time	src/villa_task/gpsr_navigation/listener_gpsr_nav	/^    def set_speech_time(self, setting):$/;"	m	class:SpeechManager
+set_speech_time	src/villa_task/helpmecarry/listener.py	/^    def set_speech_time(self, setting):$/;"	m	class:SpeechManager
+set_speech_time	src/villa_task/helpmecarry/listener_planb	/^    def set_speech_time(self, setting):$/;"	m	class:SpeechManager
+set_speech_time	src/villa_task/helpmecarry/listener_planb.py	/^    def set_speech_time(self, setting):$/;"	m	class:SpeechManager
+set_speech_time	src/villa_task/spr/commandanswerer.py	/^    def set_speech_time(self, setting):$/;"	m	class:AnswerBase
+set_speech_time	src/villa_task/spr/questionanswerer.py	/^    def set_speech_time(self, setting):$/;"	m	class:AnswerBase
+set_speech_time	src/villa_task/task3/questionanswerer.py	/^    def set_speech_time(self, setting):$/;"	m	class:AnswerBase
+setupNavClient	scripts/start_end	/^    def setupNavClient(self):$/;"	m	class:StartEnd
+setupTaskClient	scripts/start_end	/^    def setupTaskClient(self):$/;"	m	class:StartEnd
+setup_args	setup.py	/^setup_args = generate_distutils_setup($/;"	v
+shelf_to_base	scripts/groceries	/^    shelf_to_base = world_model.transform_manager.get_transform('base_link', 'shelf0')$/;"	v
+sort_objects	src/villa_task/task5/world_model.py	/^    def sort_objects(self, axis):$/;"	m	class:WorldModel
+sort_table_objects	src/villa_task/groceries/world_model.py	/^    def sort_table_objects(self, axis, robot_pose):$/;"	m	class:WorldModel
+speak_time	scripts/task3.py	/^speak_time = 0$/;"	v
+speech	scripts/task3.py	/^speech = None$/;"	v
+speech_manager	scripts/helpmecarry	/^            speech_manager = SpeechManager()$/;"	v
+speech_manager	scripts/helpmecarry	/^speech_manager    = None$/;"	v
+speech_manager	src/villa_task/gpsr_navigation/listener_gpsr_nav	/^    speech_manager = SpeechManager()$/;"	v
+speech_manager	src/villa_task/helpmecarry/listener_planb	/^    speech_manager = SpeechManager()$/;"	v
+speech_manager	src/villa_task/helpmecarry/listener_planb.py	/^    speech_manager = SpeechManager()$/;"	v
+speech_time	scripts/task3.py	/^speech_time = 0$/;"	v
+speech_transcript	scripts/task3.py	/^speech_transcript = ''$/;"	v
+start	scripts/start_end	/^    start = rospy.get_param('\/start_end_node\/start')$/;"	v	class:StartEnd
+start	src/villa_task/helpmecarry/headcontrol.py	/^    def start(self):$/;"	m	class:HeadControl
+start	src/villa_task/spr/headcontrol.py	/^    def start(self):$/;"	m	class:HeadControl
+start	src/villa_task/spr/motion.py	/^    def start(self):$/;"	m	class:MotionManager
+start	src/villa_task/task3/headcontrol.py	/^    def start(self):$/;"	m	class:HeadControl
+start_end	scripts/start_end	/^    start_end = StartEnd(wrist, start, end, start_name, end_name)$/;"	v	class:StartEnd
+start_following	src/villa_task/helpmecarry/following_srv_client.py	/^    def start_following(self):$/;"	m	class:HumanFollowingManager
+start_following	src/villa_task/helpmecarry/human_following.py	/^    def start_following(self):$/;"	m	class:HumanFollowingManager
+start_following	src/villa_task/helpmecarry/navi_service_client.py	/^	def start_following(self):$/;"	m	class:navisrvManager
+start_name	scripts/start_end	/^    start_name = rospy.get_param('\/start_end_node\/start_name') $/;"	v	class:StartEnd
+start_navigation	src/villa_task/gpsr_navigation/gpsr_navi_client.py	/^	def start_navigation(self,goal):$/;"	m	class:gpsrnaviManager
+start_task_timer	src/villa_task/groceries/visualization.py	/^def start_task_timer(start_pose):$/;"	f
+start_task_timer	src/villa_task/helpmecarry/visualization.py	/^def start_task_timer(start_pose):$/;"	f
+stop	src/villa_task/helpmecarry/headcontrol.py	/^    def stop(self):$/;"	m	class:HeadControl
+stop	src/villa_task/spr/headcontrol.py	/^    def stop(self):$/;"	m	class:HeadControl
+stop	src/villa_task/task3/headcontrol.py	/^    def stop(self):$/;"	m	class:HeadControl
+succeeded	scripts/start_end	/^def succeeded(status):$/;"	f
+table_to_base	scripts/groceries	/^    table_to_base = world_model.transform_manager.get_transform('base_link', 'table')$/;"	v
+task_timer	scripts/groceries	/^    task_timer = TaskTimer(4 * 60, motion_manager, world_model, objectlabeller, report_generation['record_final_cupboard'])$/;"	v
+timer_visualization_service	src/villa_task/groceries/visualization.py	/^timer_visualization_service = rospy.ServiceProxy("visualization\/start_countdown_timer", StartCountdown)$/;"	v
+timer_visualization_service	src/villa_task/helpmecarry/visualization.py	/^timer_visualization_service = rospy.ServiceProxy("start_countdown_timer", StartCountdown)$/;"	v
+transform_manager	scripts/task5.py	/^            transform_manager = TransformManager(whole_body)$/;"	v
+trigger	scripts/mock_wrist	/^def trigger(req):$/;"	f
+trigger	scripts/wrist	/^def trigger(req):$/;"	f
+tts	scripts/groceries	/^        tts = robot.try_get('default_tts')$/;"	v
+tts	scripts/helpmecarry	/^        tts = robot.try_get('default_tts')$/;"	v
+tts	scripts/task5.py	/^        tts = robot.try_get('default_tts')$/;"	v
+tts	src/villa_task/helpmecarry/example_integration.py	/^tts = robot.try_get('default_tts')$/;"	v
+tts	src/villa_task/helpmecarry/handover_planb	/^        tts = robot.try_get('default_tts')$/;"	v
+turn	src/villa_task/spr/personangle.py	/^    turn = Turn_to_person()$/;"	v
+turn	src/villa_task/task3/personangle.py	/^    turn = Turn_to_person()$/;"	v
+turn_to_person	src/villa_task/spr/personangle.py	/^    def turn_to_person(self):$/;"	m	class:LocatePerson
+turn_to_person	src/villa_task/task3/personangle.py	/^    def turn_to_person(self):$/;"	m	class:LocatePerson
+turning	scripts/task3.py	/^turning = False$/;"	v
+turning	scripts/task4.py	/^turning = False$/;"	v
+unanswered	scripts/task3.py	/^unanswered = False$/;"	v
+updateBegin	scripts/start_end	/^    def updateBegin(self, msg):$/;"	m	class:StartEnd
+update_ages	scripts/task3.py	/^def update_ages(a):$/;"	f
+update_genders	scripts/task3.py	/^def update_genders(g):$/;"	f
+update_speech	scripts/task3.py	/^def update_speech(s):$/;"	f
+wait_for_data	src/villa_task/groceries/octomap.py	/^    def wait_for_data(self):$/;"	m	class:OctomapManager
+wait_for_data	src/villa_task/task5/octomap.py	/^    def wait_for_data(self):$/;"	m	class:OctomapManager
+wait_for_start_signal	src/villa_task/spr/motion.py	/^    def wait_for_start_signal(wrench):$/;"	m	class:MotionManager
+wait_until	src/villa_task/tts.py	/^    def wait_until(func, timeout=None, polling=1.0, *args, **kwargs):$/;"	m	class:TextToSpeech
+whole_body	scripts/groceries	/^        whole_body = robot.try_get('whole_body')$/;"	v
+whole_body	scripts/helpmecarry	/^        whole_body = robot.try_get('whole_body')$/;"	v
+whole_body	scripts/task5.py	/^        whole_body = robot.try_get('whole_body')$/;"	v
+whole_body	src/villa_task/helpmecarry/example_integration.py	/^whole_body = robot.try_get('whole_body')$/;"	v
+whole_body	src/villa_task/helpmecarry/handover_planb	/^        whole_body = robot.try_get('whole_body')$/;"	v
+world_model	scripts/groceries	/^            world_model = WorldModel(collision_world, TransformManager(whole_body))$/;"	v
+world_model	scripts/helpmecarry	/^            world_model = WorldModel()$/;"	v
+world_model	scripts/helpmecarry	/^world_model = None$/;"	v
+world_model	scripts/task5.py	/^            world_model = WorldModel()$/;"	v
+wrench	scripts/groceries	/^            wrench = robot.get('wrist_wrench')$/;"	v
+wrench	scripts/helpmecarry	/^            wrench = robot.get('wrist_wrench')$/;"	v
+wrench	scripts/task5.py	/^        wrench = robot.get('wrist_wrench')$/;"	v
+wrist	scripts/start_end	/^    wrist = rospy.get_param('\/start_end_node\/wrist')$/;"	v	class:StartEnd
+wristTrigger	scripts/start_end	/^    def wristTrigger(self):$/;"	m	class:StartEnd
+wrist_trigger	scripts/inspection	/^def wrist_trigger():$/;"	f
+wrist_trigger_server	scripts/mock_wrist	/^def wrist_trigger_server():$/;"	f
+wrist_trigger_server	scripts/wrist	/^def wrist_trigger_server():$/;"	f
+writeFoundStartEnd	scripts/start_end	/^    def writeFoundStartEnd(self):$/;"	m	class:StartEnd
