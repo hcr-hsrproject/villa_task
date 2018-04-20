@@ -1,7 +1,6 @@
 """
 Text to Speech Handler
 """
-
 import rospy
 from tmc_msgs.msg import Voice
 from std_msgs.msg import String
@@ -37,7 +36,6 @@ class TextToSpeech(object):
             # Wait for silence
             TextToSpeech.wait_until(lambda: not self.talking_sentence, polling=0.1)
 
-
     """
     Blocks until condition is met or times out
     """
@@ -53,7 +51,6 @@ class TextToSpeech(object):
                 return True
             time.sleep(polling)
         return False
-
 
     def __talking_sentence(self, sentence):
         self.talking_sentence = sentence.data
